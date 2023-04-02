@@ -22,6 +22,14 @@ For now, the add-on has an unassigned input gesture. This is so that the user ca
 
 * As the library supports many languages, keep in mind that the conversion is done in the language of your speech synthesizer.
 
+## Compile this add-on:
+
+Note: this add-on depends on a submodule, so:
+
+1. cd to this repo.
+2. Type `git submodule init` and `git submodule update` in the console to clone the num2words library repository that is set as a module.
+3. If there are no errors, scons should work correctly.
+
 ## Contact:
 
 If you want to help improve this addon, you can send an email to `angelitomateocedillo@gmail.com` or make your contributions on the GitHub repo.
