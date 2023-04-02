@@ -1,5 +1,7 @@
 addon/doc/*.css
 addon/doc/en/
+addon/globalPlugins/__pycache__
+addon/globalPlugins/*/__pycache__
 *_docHandler.py
 *.html
 manifest.ini
