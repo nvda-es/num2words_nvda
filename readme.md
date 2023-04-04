@@ -12,11 +12,11 @@ This add-on improves the reading of numbers to words for these cases, it support
 
 This addon has two ways of using numbers to words:
 
-1. Real time mode: as long as NVDA is talking and there's a text containing numbers anywhere in it, the conversion will display its result and be transmitted by speech. This applies to any speech synthesizer you use.
-2. Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
-2.1. A input box to write your entry.
-2.2. A convert button. By pressing this button, you will be shown a message box with the final result.
-2.3. A cancel button: Exits the conversion dialog.
+* Real time mode: as long as NVDA is talking and there's a text containing numbers anywhere in it, the conversion will display its result and be transmitted by speech. This applies to any speech synthesizer you use.
+* Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
+	* A input box to write your entry.
+	* A convert button. By pressing this button, you will be shown a message box with the final result.
+	* A cancel button: Exits the conversion dialog.
 
 ### Input gestures:
 
