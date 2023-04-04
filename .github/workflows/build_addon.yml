@@ -4,7 +4,7 @@ on:
   push:
     tags: ["*"]
     # To build on main/master branch, uncomment the following line:
-    # branches: [ main , master ]
+    branches: [ main , master ]
 
   pull_request:
     branches: [ main, master ]
@@ -18,6 +18,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
 
     - run: echo -e "pre-commit\nscons\nmarkdown">requirements.txt
 
@@ -51,6 +53,8 @@ jobs:
     needs: ["build"]
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
     - name: download releases files
       uses: actions/download-artifact@v3
     - name: Display structure of downloaded files
