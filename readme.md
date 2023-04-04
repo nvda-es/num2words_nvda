@@ -14,9 +14,9 @@ This addon has two ways of using numbers to words:
 
 1. Real time mode: as long as NVDA is talking and there's a text containing numbers anywhere in it, the conversion will display its result and be transmitted by speech. This applies to any speech synthesizer you use.
 2. Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
-	2.1. A input box to write your entry.
-	2.2. A convert button. By pressing this button, you will be shown a message box with the final result.
-	2.3. A cancel button: Exits the conversion dialog.
+2.1. A input box to write your entry.
+2.2. A convert button. By pressing this button, you will be shown a message box with the final result.
+2.3. A cancel button: Exits the conversion dialog.
 
 ### Input gestures:
 
@@ -33,9 +33,9 @@ This addon has two ways of using numbers to words:
 
 Note: this add-on depends on a submodule, so:
 
-1. cd to this repo.
+1. cd to this repo: `cd num2words_nvda`
 2. Type `git submodule init` and `git submodule update` in the console to clone the num2words library repository that is set as a module.
-3. If there are no errors, scons should work correctly.
+3. If there are no errors, `scons` command should work correctly.
 
 ## Contact:
 
