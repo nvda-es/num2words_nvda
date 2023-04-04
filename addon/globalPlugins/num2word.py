@@ -95,6 +95,9 @@ class ConversionDialog(wx.Dialog):
 
 	def onConvert(self, event):
 		number = self.number_textbox.GetValue()
+		if not number:
+			wx.MessageBox("there's nothing to convert", "Error")
+		else:
 		language = getCurrentLanguage() # based on the synthesizer language
 		words = convert_num_to_words(number, language)
 		wx.MessageBox(words, "Result")
