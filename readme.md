@@ -10,17 +10,24 @@ This add-on improves the reading of numbers to words for these cases, it support
 
 ## Usage:
 
-For now, the add-on has an unassigned input gesture. This is so that the user can customize them from the `NVDA menu/preferences/input gestures` dialog and avoid as much possible interference with some add-ons.
+This addon has two ways of using numbers to words:
 
-### functions:
+1. Real time mode: as long as NVDA is talking and there's a text containing numbers anywhere in it, the conversion will display its result and be transmitted by speech. This applies to any speech synthesizer you use.
+2. Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
+	2.1. A input box to write your entry.
+	2.2. A convert button. By pressing this button, you will be shown a message box with the final result.
+	2.3. A cancel button: Exits the conversion dialog.
 
-* Toggle numbers to words : By activating this function, the text that NVDA speaks, (as long as it has numbers, or text and numbers) will be converted.
+### Input gestures:
 
-* More features soon.
+* Toggle numbers to words (or real time mode): (Unassigned gesture for now to avoid interference with other add-ons).
+* Open conversion dialog (manual mode): alt+shift+NVDA+n.
+* More features soon!
 
-#### note:
+#### Important notes:
 
-* As the library supports many languages, keep in mind that the conversion is done in the language of your speech synthesizer.
+* As the library supports many languages, keep in mind that the conversion is done in the language of your speech synthesizer. This will even apply when you change the language of your synthesizer.
+* Currently, speaking a converted number with the cursor isn't implemented and as a consequence will spell out the converted number.
 
 ## Compile this add-on:
 

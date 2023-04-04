@@ -21,6 +21,7 @@ import os
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'num2words'))
 import num2words
+import gui, wx
 # default params:
 speak_orig = None # speak object if num2words is disabled.
 num2word_enhabled = False
@@ -60,6 +61,8 @@ def speak_mod(speechSequence: SpeechSequence,
 			print(f"Before: {item}")
 			# Aplying number to words to synthesizer language:
 			new_item = convert_num_to_words(item, curLanguage)
+			# for testing:
+			#new_item = convert_num_to_words(item, "en")
 			print(f"After: {new_item}")
 			converted_speechSequence.append(new_item)
 		else:
@@ -73,7 +76,34 @@ def speak_mod(speechSequence: SpeechSequence,
 			curLanguage=item.lang
 	speak_orig(speechSequence = converted_speechSequence, priority = priority)
 
+class ConversionDialog(wx.Dialog):
+	def __init__(self, parent):
+		super(ConversionDialog, self).__init__(parent=parent, title="Convert number to words")
+		self.number_textbox = wx.TextCtrl(self)
+		self.convert_button = wx.Button(self, label="Convert")
+		self.cancel_button = wx.Button(self, label="Cancel")
+		sizer = wx.BoxSizer(wx.VERTICAL)
+		sizer.Add(wx.StaticText(self, label="Write something here, example: 3 free throws"), 0, wx.ALL, 5)
+		sizer.Add(self.number_textbox, 0, wx.EXPAND|wx.ALL, 5)
+		sizer.Add(self.convert_button, 0, wx.ALIGN_CENTER|wx.ALL, 5)
+		sizer.Add(self.cancel_button, 0, wx.ALIGN_CENTER|wx.ALL, 5)
+		self.SetSizer(sizer)
+		self.Bind(wx.EVT_BUTTON, self.onConvert, self.convert_button)
+		self.Bind(wx.EVT_BUTTON, self.OnCancel, self.cancel_button)
+
+		self.number_textbox.SetFocus()
+
+	def onConvert(self, event):
+		number = self.number_textbox.GetValue()
+		language = getCurrentLanguage() # based on the synthesizer language
+		words = convert_num_to_words(number, language)
+		wx.MessageBox(words, "Result")
+
+	def OnCancel(self, event):
+		self.Destroy()
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
+	scriptCategory = "Number to words"
 	def __init__(self):
 		super().__init__()
 		global speak_orig
@@ -81,6 +111,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speak_orig = speech._manager.speak
 		# replace the original speak object to the modified speak_mod func:
 		speech._manager.speak = speak_mod
+
+# GUI for conversion:
+	def onConvert(self, evt):
+		gui.mainFrame._popupSettingsDialog(ConversionDialog)
 
 	# scripts:
 	@script(
@@ -96,3 +130,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		else:
 			ui.message("Num2words disabled.")
 			num2word_enhabled = False
+
+	@script(
+		description="Opens a dialog to convert number to words manually",
+		gesture="kb:alt+shift+NVDA+N"
+	)
+	def script_convertor(self, gesture):
+		wx.CallAfter(self.onConvert, None)
