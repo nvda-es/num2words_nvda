@@ -11,6 +11,5 @@ manifest.ini
 *.nvda-addon
 .sconsign.dblite
 /[0-9]*.[0-9]*.[0-9]*.json
-msgfmt.exe
-xgettext.exe
+*.exe
 *.dll

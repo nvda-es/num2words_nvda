@@ -40,3 +40,11 @@ Note: this add-on depends on a submodule, so:
 ## Contact:
 
 If you want to help improve this addon, you can send an email to `angelitomateocedillo@gmail.com` or make your contributions on the GitHub repo.
+
+---
+
+# Changelog:
+
+## 0.1
+
+* Initial release. You may find some minor bugs. If so, please let me know.

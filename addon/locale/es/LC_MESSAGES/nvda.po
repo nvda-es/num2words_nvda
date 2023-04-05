@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the num2words package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: num2words 0.1\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-04-04 22:52-0500\n"
+"PO-Revision-Date: 2023-04-05 06:28-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. Translators: Name of the conversion dialog.
+#: addon/globalPlugins/num2word.py:88
+msgid "Convert number to words"
+msgstr "Convertir número a palabras"
+
+#. Translators: Label for the conversion button.
+#: addon/globalPlugins/num2word.py:94
+msgid "Convert"
+msgstr "Convertir"
+
+#. Translators: Label for the button to cancel the conversion.
+#: addon/globalPlugins/num2word.py:99
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. Translators: Label for the input box for the conversion.
+#: addon/globalPlugins/num2word.py:106
+msgid "Write something here, example: 3 free throws"
+msgstr "Escribe algo aquí, por ejemplo: 3 tiros libres"
+
+#. Translators: Error message when there is nothing to convert.
+#: addon/globalPlugins/num2word.py:126
+msgid "there's nothing to convert"
+msgstr "No hay nada que convertir"
+
+#. Translators: Title of the error message.
+#: addon/globalPlugins/num2word.py:128
+msgid "Error"
+msgstr "Error"
+
+#. Translators: title of the conversion results dialog.
+#: addon/globalPlugins/num2word.py:136
+msgid "Conversion results"
+msgstr "Resultados de conversión"
+
+#. Translators: Add-on category name.
+#: addon/globalPlugins/num2word.py:144
+msgid "Number to words"
+msgstr "Número a palabras"
+
+#. Translators: Description of the conversion of numbers to words in real time mode for input help.
+#: addon/globalPlugins/num2word.py:160
+msgid "Switch reading from numbers to words."
+msgstr "Alternar la lectura de números a palabras."
+
+#. Translators: message announced when realtime mode is enabled.
+#: addon/globalPlugins/num2word.py:168
+msgid "Num2words enabled."
+msgstr "Números a palabras activado."
+
+#. Translators: message announced when realtime mode is disabled.
+#: addon/globalPlugins/num2word.py:172
+msgid "Num2words disabled."
+msgstr "Números a palabras desactivado."
+
+#. Translators: Description of the manual conversion dialog for input help.
+#: addon/globalPlugins/num2word.py:177
+msgid "Opens a dialog to convert number to words manually"
+msgstr "Abre un diálogo para convertir números a palabras de forma manual"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Number to word support for NVDA"
+msgstr "Soporte de números a palabras para NVDA"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"Implementation of the num2Word python library for NVDA that supports many "
+"languages"
+msgstr ""
+"Implementación de la librería de Python num2words para NVDA que soporta "
+"muchos idiomas"
