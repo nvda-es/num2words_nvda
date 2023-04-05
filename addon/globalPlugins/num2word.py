@@ -13,6 +13,7 @@ from speech.priorities import Spri
 from speech import manager
 from logHandler import log
 import config
+import addonHandler
 import tones
 import ui
 from typing import Optional
@@ -24,8 +25,11 @@ import num2words
 import gui, wx
 # default params:
 speak_orig = None # speak object if num2words is disabled.
-num2word_enhabled = False
+realtime = False
 language = "en"
+# Since I always run and test code from scratchpad, it's important to enable translation if only if this is run as a standalone addon. Otherwise, there is an error message.
+if not config.conf['development']['enableScratchpadDir']:
+	addonHandler.initTranslation()
 
 def convert_num_to_words(utterance, language):
 	utterance = ' '.join([num2words.num2words(i ,lang=language) if i.isdigit() else i for i in utterance.split()])
@@ -35,8 +39,8 @@ def convert_num_to_words(utterance, language):
 def speak_mod(speechSequence: SpeechSequence,
 		priority: Spri = None
 ):
-	global num2word_enhabled
-	if not num2word_enhabled:
+	global realtime
+	if not realtime:
 		return speak_orig(speechSequence=speechSequence, priority=priority)
 	import speechViewer
 	if speechViewer.isActive:
@@ -78,35 +82,66 @@ def speak_mod(speechSequence: SpeechSequence,
 
 class ConversionDialog(wx.Dialog):
 	def __init__(self, parent):
-		super(ConversionDialog, self).__init__(parent=parent, title="Convert number to words")
-		self.number_textbox = wx.TextCtrl(self)
-		self.convert_button = wx.Button(self, label="Convert")
-		self.cancel_button = wx.Button(self, label="Cancel")
+		super(ConversionDialog, self).__init__(
+			parent=parent,
+			# Translators: Name of the conversion dialog.
+			title=_("Convert number to words")
+		)
+		self.input_text = wx.TextCtrl(self)
+		self.convert = wx.Button(
+			self,
+			# Translators: Label for the conversion button.
+			label=_("Convert")
+		)
+		self.cancel = wx.Button(
+			self,
+			# Translators: Label for the button to cancel the conversion.
+			label=_("Cancel")
+		)
 		sizer = wx.BoxSizer(wx.VERTICAL)
-		sizer.Add(wx.StaticText(self, label="Write something here, example: 3 free throws"), 0, wx.ALL, 5)
-		sizer.Add(self.number_textbox, 0, wx.EXPAND|wx.ALL, 5)
-		sizer.Add(self.convert_button, 0, wx.ALIGN_CENTER|wx.ALL, 5)
-		sizer.Add(self.cancel_button, 0, wx.ALIGN_CENTER|wx.ALL, 5)
+		sizer.Add(
+			wx.StaticText(
+				self,
+				# Translators: Label for the input box for the conversion.
+				label=_("Write something here, example: 3 free throws")
+			),
+			0,
+			wx.ALL,
+			5
+		)
+		sizer.Add(self.input_text, 0, wx.EXPAND|wx.ALL, 5)
+		sizer.Add(self.convert, 0, wx.ALIGN_CENTER|wx.ALL, 5)
+		sizer.Add(self.cancel, 0, wx.ALIGN_CENTER|wx.ALL, 5)
 		self.SetSizer(sizer)
-		self.Bind(wx.EVT_BUTTON, self.onConvert, self.convert_button)
-		self.Bind(wx.EVT_BUTTON, self.OnCancel, self.cancel_button)
+		self.Bind(wx.EVT_BUTTON, self.onConvert, self.convert)
+		self.Bind(wx.EVT_BUTTON, self.OnCancel, self.cancel)
 
-		self.number_textbox.SetFocus()
+		self.input_text.SetFocus()
 
 	def onConvert(self, event):
-		number = self.number_textbox.GetValue()
-		if not number:
-			wx.MessageBox("there's nothing to convert", "Error")
+		to_convert = self.input_text.GetValue()
+		if not to_convert :
+			wx.MessageBox(
+				# Translators: Error message when there is nothing to convert.
+				_("there's nothing to convert"),
+				# Translators: Title of the error message.
+				_("Error")
+			)
 		else:
 			language = getCurrentLanguage() # based on the synthesizer language
-			words = convert_num_to_words(number, language)
-			wx.MessageBox(words, "Result")
+			words = convert_num_to_words(to_convert, language)
+			wx.MessageBox(
+				words,
+				# Translators: title of the conversion results dialog.
+				_("Conversion results")
+			)
 
 	def OnCancel(self, event):
 		self.Destroy()
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-	scriptCategory = "Number to words"
+	# Translators: Add-on category name.
+	scriptCategory = _("Number to words")
 	def __init__(self):
 		super().__init__()
 		global speak_orig
@@ -121,21 +156,25 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	# scripts:
 	@script(
-		description="Switch reading from numbers to words.",
+		# Translators: Description of the conversion of numbers to words in real time mode for input help.
+		description=_("Switch reading from numbers to words."),
 		category=globalCommands.SCRCAT_SPEECH,
 		gesture=None
 	)
 	def script_switch_num2word(self, gesture):
-		global num2word_enhabled
-		if not num2word_enhabled:
-			ui.message("Num2words enabled.")
-			num2word_enhabled = True
+		global realtime
+		if not realtime:
+			# Translators: message announced when realtime mode is enabled.
+			ui.message(_("Num2words enabled."))
+			realtime = True
 		else:
-			ui.message("Num2words disabled.")
-			num2word_enhabled = False
+			# Translators: message announced when realtime mode is disabled.
+			ui.message(_("Num2words disabled."))
+			realtime = False
 
 	@script(
-		description="Opens a dialog to convert number to words manually",
+		# Translators: Description of the manual conversion dialog for input help.
+		description=_("Opens a dialog to convert number to words manually"),
 		gesture="kb:alt+shift+NVDA+N"
 	)
 	def script_convertor(self, gesture):
