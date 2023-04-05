@@ -22,6 +22,7 @@ import os
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'num2words'))
 import num2words
+import re
 import gui, wx
 # default params:
 speak_orig = None # speak object if num2words is disabled.
@@ -32,7 +33,8 @@ if not config.conf['development']['enableScratchpadDir']:
 	addonHandler.initTranslation()
 
 def convert_num_to_words(utterance, language):
-	if len(utterance) > 29:
+	digits = re.findall(r'\d', utterance)
+	if len(digits ) > 29:
 		tones.beep(1200, 100)
 		utterance =_(
 			# Translators: Error message when the number is too big.
