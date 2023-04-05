@@ -18,6 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
+#. Translators: Error message when the number is too big.
+#: addon/globalPlugins/num2word.py:39
+msgid "The number is too big! twenty seven numbers maximum"
+msgstr "¡El número es demasiado grande! veintisiete números como máximo"
+
 #. Translators: Name of the conversion dialog.
 #: addon/globalPlugins/num2word.py:88
 msgid "Convert number to words"

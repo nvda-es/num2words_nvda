@@ -26,6 +26,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 #### Notas importantes:
 
 * Como la librería soporta muchos idiomas, ten en cuenta que la conversión se realizará en el idioma de tu sintetizador de voz. Siendo así, el idioma de la conversión se cambia automáticamente cuando cambies el del sintetizador.
+* La librería num2words puede convertir hasta 27 números seguidos. Si el texto tiene más de 27 números, lo sabrás con un pitido y un mensaje de voz indicándotelo.
 * Actualmente, la verbalización de un número convertido con el cursor no está implementada y, como consecuencia, se deletreará el número convertido.
 
 ## Compilar este complemento:

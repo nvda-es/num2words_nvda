@@ -32,7 +32,14 @@ if not config.conf['development']['enableScratchpadDir']:
 	addonHandler.initTranslation()
 
 def convert_num_to_words(utterance, language):
-	utterance = ' '.join([num2words.num2words(i ,lang=language) if i.isdigit() else i for i in utterance.split()])
+	if len(utterance) > 29:
+		tones.beep(1200, 100)
+		utterance =_(
+			# Translators: Error message when the number is too big.
+			_("The number is too big! twenty seven numbers maximum")
+	)
+	else:
+		utterance = ' '.join([num2words.num2words(i ,lang=language) if i.isdigit() else i for i in utterance.split()])
 	return utterance
 
 # function modified from NVDA source. (speech/speech.py)
@@ -61,13 +68,10 @@ def speak_mod(speechSequence: SpeechSequence,
 			if autoLanguageSwitching and curLanguage!=prevLanguage:
 				converted_speechSequence.append(LangChangeCommand(curLanguage))
 				prevLanguage=curLanguage
-			# debugging num2words:
-			print(f"Before: {item}")
 			# Aplying number to words to synthesizer language:
 			new_item = convert_num_to_words(item, curLanguage)
 			# for testing:
 			#new_item = convert_num_to_words(item, "en")
-			print(f"After: {new_item}")
 			converted_speechSequence.append(new_item)
 		else:
 			converted_speechSequence.append(item)

@@ -27,6 +27,7 @@ This addon has two ways of using numbers to words:
 #### Important notes:
 
 * As the library supports many languages, keep in mind that the conversion is done in the language of your speech synthesizer. This will even apply when you change the language of your synthesizer.
+* The num2words library can convert up to 27 consecutive numbers. If the text is longer than 27 numbers, it will let you know with a beep and a speech message.
 * Currently, speaking a converted number with the cursor isn't implemented and as a consequence will spell out the converted number.
 
 ## Compile this add-on:
