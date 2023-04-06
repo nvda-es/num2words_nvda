@@ -8,6 +8,26 @@ I was inspired to make this little add-on, because some people use speech synthe
 
 This add-on improves the reading of numbers to words for these cases, it supports larger numbers and, in addition, the library supports many languages.
 
+## comparison of results between original and converted speech input
+
+This comparison table demonstrates the differences between number processing on a synthesizer and num2words processing.
+
+The following comparison has been evaluated using the [IBMTTS driver](https://github.com/davidacm/NVDA-IBMTTS-Driver) for NVDA.
+
+
+### Using long numbers:
+
+| Language | Original input | Output | Converted input |
+|---|---|---|---|
+| Spanish | 921359131290481307233416326 | nueve dos ún tres cinco nueve ún tres ún dos nueve cero cuatro ocho ún tres cero siete dos tres tres cuatro ún seis tres dos seis | novecientos veintiuno cuatrillones trescientos cincuenta y nueve mil ciento treinta y uno trillones doscientos noventa mil cuatrocientos ochenta y uno billones trescientos siete mil doscientos treinta y tres millones cuatrocientos dieciséis mil trescientos veintiséis |
+| English | 921359131290481307233416326 | nine two one three five nine one three one two nine zero four eight one three zero seven two three three four one six three two six | nine hundred and twenty-one septillion, three hundred and fifty-nine sextillion, one hundred and thirty-one quintillion, two hundred and ninety quadrillion, four hundred and eighty-one trillion, three hundred and seven billion, two hundred and thirty-three million, four hundred and sixteen thousand, three hundred and twenty-six |
+
+### Using spaces as separators (only in Spanish):
+
+* Original input: 12 499
+* Output: doce mil cuatrocientos noventa y nueve
+*Converted input: doce cuatrocientos noventa y nueve
+
 ## Usage:
 
 This addon has two ways of using numbers to words:

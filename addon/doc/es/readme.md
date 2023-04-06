@@ -7,6 +7,25 @@ Autor: Mateo Cedillo
 Me inspiré en hacer este pequeño complemento, pues muchos sintetizadores de voz como ETI-Eloquence tienen ciertos defectos en cuanto al procesamiento de números. Por ejemplo, si se tiene dos números separados por espacios y el sintetizador lo interpreta erróneamente como si de un punto decimal se tratara.
 Este complemento mejora la lectura de números a palabras para estos casos, soporta números grandes y, además, la librería con la que depende admite muchos idiomas.
 
+## comparación de resultados entre una entrada de voz original y una convertida
+
+Esta tabla de comparación demuestra las diferencias del procesamiento de números en un sintetizador con el procesamiento de num2words.
+
+La siguiente comparación ha sido evaluada utilizando el [controlador IBMTTS](https://github.com/davidacm/NVDA-IBMTTS-Driver) para NVDA.
+
+### Usando números largos:
+
+| Idioma | entrada original | Texto de salida | Entrada convertida |
+|---|---|---|---|
+| Español | 921359131290481307233416326 | nueve dos ún tres cinco nueve ún tres ún dos nueve cero cuatro ocho ún tres cero siete dos tres tres cuatro ún seis tres dos seis | novecientos veintiuno cuatrillones trescientos cincuenta y nueve mil ciento treinta y uno trillones doscientos noventa mil cuatrocientos ochenta y uno billones trescientos siete mil doscientos treinta y tres millones cuatrocientos dieciséis mil trescientos veintiséis |
+| Inglés | 921359131290481307233416326 | nine two one three five nine one three one two nine zero four eight one three zero seven two three three four one six three two six | nine hundred and twenty-one septillion, three hundred and fifty-nine sextillion, one hundred and thirty-one quintillion, two hundred and ninety quadrillion, four hundred and eighty-one trillion, three hundred and seven billion, two hundred and thirty-three million, four hundred and sixteen thousand, three hundred and twenty-six |
+
+### Usando espacios como separadores (en Español solamente):
+
+* entrada original: 12 499
+* Salida: doce mil cuatrocientos noventa y nueve
+* Entrada convertida: doce cuatrocientos noventa y nueve
+
 ## Uso:
 
 Este complemento tiene dos formas de usar números a palabras que se detallan a continuación:
