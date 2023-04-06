@@ -42,6 +42,8 @@ def convert_num_to_words(utterance, language):
 	)
 	else:
 		utterance = ' '.join([num2words.num2words(i ,lang=language) if i.isdigit() else i for i in utterance.split()])
+		if not utterance[0].isupper():
+			utterance = utterance.capitalize()
 	return utterance
 
 # function modified from NVDA source. (speech/speech.py)
