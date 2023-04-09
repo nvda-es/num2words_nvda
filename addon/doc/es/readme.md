@@ -64,6 +64,11 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 # Historial de cambios:
 
+## 0.2
+
+* Ahora el resultado de números a palabras está en mayúsculas.
+* Se actualizó la librería num2words al commit `d09862790503a0ec03f3c3ffb2f70e03c41ae2f6`.
+
 ## 0.1
 
 * Versión inicial. Es posible que encuentres algunos errores menores. Si es así, por favor házmelo saber.

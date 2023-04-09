@@ -66,6 +66,11 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 # Changelog:
 
+## 0.2
+
+* Now the result from numbers to words is capitalized.
+* Updated num2words library to commit `d09862790503a0ec03f3c3ffb2f70e03c41ae2f6`.
+
 ## 0.1
 
 * Initial release. You may find some minor bugs. If so, please let me know.
