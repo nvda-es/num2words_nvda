@@ -32,6 +32,12 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 
 * Modo en tiempo real: mientras NVDA hable y exista texto que contenga números dentro de él, la conversión mostrará su resultado y este se transmitirá por voz. Esto, por supuesto, se aplica en cualquier sintetizador de voz que uses.
 * Modo manual: puedes escribir números, texto y/o números a la vez, interactuando mediante un cuadro de diálogo que te permitirá hacerlo. La ventana de diálogo tiene:
+	* Una casilla de verificación para convertir a ordinal.
+	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay cuatro modos de conversión y son los siguientes:
+		* Ordinales
+		* Números ordinales
+		* Año
+		* Moneda
 	* Un cuadro de edición para escribir tu entrada.
 	* Un botón convertir. Al presionar este botón, se te mostrará un cuadro de mensaje con el resultado final.
 	* Un botón cancelar: sale del diálogo de conversión.
@@ -47,6 +53,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 * Como la librería soporta muchos idiomas, ten en cuenta que la conversión se realizará en el idioma de tu sintetizador de voz. Siendo así, el idioma de la conversión se cambia automáticamente cuando cambies el del sintetizador.
 * La librería num2words puede convertir hasta 27 números seguidos. Si el texto tiene más de 27 números, lo sabrás con un pitido y un mensaje de voz indicándotelo.
 * Actualmente, la verbalización de un número convertido con el cursor no está implementada y, como consecuencia, se deletreará el número convertido.
+* El soporte de conversión de números decimales a palabras se está intentando implementar, ya que hay conflictos con algunas librerías natibas de Python instaladas en NVDA.
 
 ## Compilar este complemento:
 
@@ -68,6 +75,7 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 * Ahora el resultado de números a palabras está en mayúsculas.
 * Se actualizó la librería num2words al commit `d09862790503a0ec03f3c3ffb2f70e03c41ae2f6`.
+* Se agregaron los modos de conversión soportados por la librería num2words en la interfaz de conversión manual.
 
 ## 0.1
 

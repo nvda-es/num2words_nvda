@@ -28,22 +28,23 @@ import gui, wx
 speak_orig = None # speak object if num2words is disabled.
 realtime = False
 language = "en"
-# Since I always run and test code from scratchpad, it's important to enable translation if only if this is run as a standalone addon. Otherwise, there is an error message.
+# Since I always run and test this code from scratchpad, it's important to enable translation if only if this is run as a standalone addon. Otherwise, there is an error message.
 if not config.conf['development']['enableScratchpadDir']:
 	addonHandler.initTranslation()
 
-def convert_num_to_words(utterance, language):
-	digits = re.findall(r'\d', utterance)
-	if len(digits ) > 29:
-		tones.beep(1200, 100)
-		utterance =_(
-			# Translators: Error message when the number is too big.
-			_("The number is too big! twenty seven numbers maximum")
-	)
-	else:
-		utterance = ' '.join([num2words.num2words(i ,lang=language) if i.isdigit() else i for i in utterance.split()])
-		if not utterance[0].isupper():
-			utterance = utterance.capitalize()
+def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kwargs):
+	match = re.findall(r'[\d./]+', utterance)
+	if len(match) > 0:
+		if len(re.findall(r'\d{28,}', utterance)) > 0:
+			tones.beep(1200, 100)
+			utterance =_(
+				# Translators: Error message when the number is too big.
+				_("The number is too big! twenty seven numbers maximum")
+			)
+		else:
+			utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
+			if not utterance[0].isupper():
+				utterance = utterance.capitalize()
 	return utterance
 
 # function modified from NVDA source. (speech/speech.py)
@@ -73,9 +74,9 @@ def speak_mod(speechSequence: SpeechSequence,
 				converted_speechSequence.append(LangChangeCommand(curLanguage))
 				prevLanguage=curLanguage
 			# Aplying number to words to synthesizer language:
-			new_item = convert_num_to_words(item, curLanguage)
+			new_item = convert_num_to_words(utterance=item, language=curLanguage)
 			# for testing:
-			#new_item = convert_num_to_words(item, "en")
+			#new_item = convert_num_to_words(utterance=item, language="en")
 			converted_speechSequence.append(new_item)
 		else:
 			converted_speechSequence.append(item)
@@ -95,6 +96,15 @@ class ConversionDialog(wx.Dialog):
 			# Translators: Name of the conversion dialog.
 			title=_("Convert number to words")
 		)
+		# declare:
+		self.use_ordinal_only=False
+		self.mode=0
+		self.write_label = wx.StaticText(
+			self,
+			# Translators: Label for the input box for the conversion.
+			label=_("Write something here, example: 3 free throws")
+		)
+
 		self.input_text = wx.TextCtrl(self)
 		self.convert = wx.Button(
 			self,
@@ -106,25 +116,49 @@ class ConversionDialog(wx.Dialog):
 			# Translators: Label for the button to cancel the conversion.
 			label=_("Cancel")
 		)
-		sizer = wx.BoxSizer(wx.VERTICAL)
-		sizer.Add(
-			wx.StaticText(
-				self,
-				# Translators: Label for the input box for the conversion.
-				label=_("Write something here, example: 3 free throws")
-			),
-			0,
-			wx.ALL,
-			5
+		self.ordinal = wx.CheckBox(
+			self,
+			# Translators: label for the checkbox to convert to ordinals.
+			label=_("Ordinal mode")
 		)
+		self.conversion_label = wx.StaticText(
+			self,
+			# Translators: label for the combo box to choose the conversion mode.
+			label=_("Choose conversion mode:")
+		)
+		self.conversion_mode = wx.Choice(
+			self,
+			# Translators: Options to choose the conversion mode that numbers to words supports. There are five modes:
+			choices=[_("None"), _("cardinal"), _("Ordinal"), _("Ordinal number"), _("Year"), _("Currency")]
+		)
+		sizer = wx.BoxSizer(wx.VERTICAL)
+		sizer.Add(self.write_label, 0, wx.ALL, 5)
 		sizer.Add(self.input_text, 0, wx.EXPAND|wx.ALL, 5)
+		hbox = wx.BoxSizer(wx.HORIZONTAL)
+		hbox.Add(self.conversion_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5)
+		hbox.Add(self.conversion_mode, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5)
+		sizer.Add(hbox, 0, wx.EXPAND|wx.ALL, 5)
+		sizer.Add(self.ordinal, 0, wx.ALL, 5)
 		sizer.Add(self.convert, 0, wx.ALIGN_CENTER|wx.ALL, 5)
 		sizer.Add(self.cancel, 0, wx.ALIGN_CENTER|wx.ALL, 5)
 		self.SetSizer(sizer)
+		self.Bind(wx.EVT_CHECKBOX, self.onOrdinal, self.ordinal)
+		self.Bind(wx.EVT_CHOICE, self.onConversion_mode, self.conversion_mode)
 		self.Bind(wx.EVT_BUTTON, self.onConvert, self.convert)
 		self.Bind(wx.EVT_BUTTON, self.OnCancel, self.cancel)
-
+		self.Bind(wx.EVT_CHAR_HOOK, self.accel_keys)
+		# set default parametters:
+		self.conversion_mode.SetSelection(0)
 		self.input_text.SetFocus()
+		# set acceleator keys:
+		self.SetEscapeId(self.cancel.GetId())
+
+	def onOrdinal(self, event):
+		self.use_ordinal_only = event.IsChecked()
+		self.conversion_mode.Enable(not event.IsChecked())
+
+	def onConversion_mode(self, event):
+		self.mode = self.conversion_mode.GetSelection()
 
 	def onConvert(self, event):
 		to_convert = self.input_text.GetValue()
@@ -137,7 +171,24 @@ class ConversionDialog(wx.Dialog):
 			)
 		else:
 			language = getCurrentLanguage() # based on the synthesizer language
-			words = convert_num_to_words(to_convert, language)
+			# supported modes:
+			if self.mode == 0 or self.mode == 1:
+				conversion_type = "cardinal"
+			elif self.mode == 2:
+				conversion_type = "ordinal"
+			elif self.mode == 3:
+				conversion_type = "ordinal_num"
+			elif self.mode == 4:
+				conversion_type = "year"
+			elif self.mode == 5:
+				conversion_type = "currency"
+			# convert:
+			words = convert_num_to_words(
+				utterance=to_convert,
+				ordinal=self.use_ordinal_only,
+				language=language,
+				to=conversion_type
+			)
 			wx.MessageBox(
 				words,
 				# Translators: title of the conversion results dialog.
@@ -146,6 +197,13 @@ class ConversionDialog(wx.Dialog):
 
 	def OnCancel(self, event):
 		self.Destroy()
+
+	def accel_keys(self, event):
+		keycode = event.GetKeyCode()
+		if keycode == wx.WXK_ESCAPE:
+			self.OnCancel(event)
+		else:
+			event.Skip()
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# Translators: Add-on category name.

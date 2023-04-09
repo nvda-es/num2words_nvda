@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: num2words 0.1\n"
+"Project-Id-Version: num2words 0.2\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-04-04 22:52-0500\n"
 "PO-Revision-Date: 2023-04-05 06:28-0500\n"
@@ -28,6 +28,11 @@ msgstr "¡El número es demasiado grande! veintisiete números como máximo"
 msgid "Convert number to words"
 msgstr "Convertir número a palabras"
 
+#. Translators: Label for the input box for the conversion.
+#: addon/globalPlugins/num2word.py:105
+msgid "Write something here, example: 3 free throws"
+msgstr "Escribe algo aquí, por ejemplo: 3 tiros libres"
+
 #. Translators: Label for the conversion button.
 #: addon/globalPlugins/num2word.py:94
 msgid "Convert"
@@ -38,10 +43,40 @@ msgstr "Convertir"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#. Translators: Label for the input box for the conversion.
-#: addon/globalPlugins/num2word.py:106
-msgid "Write something here, example: 3 free throws"
-msgstr "Escribe algo aquí, por ejemplo: 3 tiros libres"
+#. Translators: label for the checkbox to convert to ordinals.
+#: addon/globalPlugins/num2word.py:122
+msgid "Ordinal mode"
+msgstr "Modo ordinal"
+
+#. Translators: label for the combo box to choose the conversion mode.
+#: addon/globalPlugins/num2word.py:127
+msgid "Choose conversion mode:"
+msgstr "Selecciona el modo de conversión:"
+
+#. Translators: Options to choose the conversion mode that numbers to words supports. There are five modes:
+#: addon/globalPlugins/num2word.py:132
+msgid "None"
+msgstr "Ninguno"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "cardinal"
+msgstr "cardenal"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Ordinal"
+msgstr "Ordinal"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Ordinal number"
+msgstr "Número ordinal"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Year"
+msgstr "Año"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Currency"
+msgstr "Moneda"
 
 #. Translators: Error message when there is nothing to convert.
 #: addon/globalPlugins/num2word.py:126

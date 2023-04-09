@@ -26,7 +26,7 @@ The following comparison has been evaluated using the [IBMTTS driver](https://gi
 
 * Original input: 12 499
 * Output: doce mil cuatrocientos noventa y nueve
-*Converted input: doce cuatrocientos noventa y nueve
+*  Converted input: doce cuatrocientos noventa y nueve
 
 ## Usage:
 
@@ -34,6 +34,12 @@ This addon has two ways of using numbers to words:
 
 * Real time mode: as long as NVDA is talking and there's a text containing numbers anywhere in it, the conversion will display its result and be transmitted by speech. This applies to any speech synthesizer you use.
 * Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
+	* A checkbox to convert to ordinal.
+	* If the ordinal box is not checked, a combo box will appear to choose the conversion mode. There are four conversion modes and they are as follows:
+		* Ordinal
+		* Ordinal number
+		* Year
+		* Currency
 	* An input box to write your entry.
 	* A convert button. By pressing this button, you will be shown a message box with the final result.
 	* A cancel button: Exits the conversion dialog.
@@ -49,6 +55,7 @@ This addon has two ways of using numbers to words:
 * As the library supports many languages, keep in mind that the conversion is done in the language of your speech synthesizer. This will even apply when you change the language of your synthesizer.
 * The num2words library can convert up to 27 consecutive numbers. If the text is longer than 27 numbers, it will let you know with a beep and a speech message.
 * Currently, speaking a converted number with the cursor isn't implemented and as a consequence will spell out the converted number.
+* Decimal numbers to words conversion support is being implemented, as there are conflicts with some native Python libraries installed in NVDA.
 
 ## Compile this add-on:
 
@@ -70,6 +77,7 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 * Now the result from numbers to words is capitalized.
 * Updated num2words library to commit `d09862790503a0ec03f3c3ffb2f70e03c41ae2f6`.
+* Added conversion modes supported by the num2words library in the manual conversion GUI.
 
 ## 0.1
 
