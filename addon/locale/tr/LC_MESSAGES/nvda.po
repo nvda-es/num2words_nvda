@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the num2words package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Sayıdan Kelimelere 0.2\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-04-04 22:52-0500\n"
+"PO-Revision-Date: 2023-05-17 15:32+0300\n"
+"Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
+"Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. Translators: Error message when the number is too big.
+#: addon/globalPlugins/num2word.py:39
+msgid "The number is too big! twenty seven numbers maximum"
+msgstr "Sayı çok büyük! maksimum yirmi yedi sayı"
+
+#. Translators: Error message if the language is not supported by num2words.
+#: addon/globalPlugins/num2word.py:54
+msgid ""
+"The language set in the speech synthesis is not supported by the num2words "
+"library. If you want to suggest or add this language, you can do it through "
+"the library repository: https://github.com/savoirfairelinux/num2words"
+msgstr ""
+"Konuşma sentezleyicisinde ayarlanan dil, num2words kitaplığı tarafından "
+"desteklenmiyor. Bu dili önermek veya eklemek isterseniz, bunu kütüphane "
+"deposu aracılığıyla yapabilirsiniz: https://github.com/savoirfairelinux/"
+"num2words"
+
+#. Translators: Title of the error message.
+#: addon/globalPlugins/num2word.py:56 addon/globalPlugins/num2word.py:196
+msgid "Error"
+msgstr "Hata"
+
+#. Translators: Name of the conversion dialog.
+#: addon/globalPlugins/num2word.py:88
+msgid "Convert number to words"
+msgstr "Sayıyı kelimelere dönüştür"
+
+#. Translators: Label for the input box for the conversion.
+#: addon/globalPlugins/num2word.py:105
+msgid "Write something here, example: 3 free throws"
+msgstr "Buraya bir şeyler yazın, örnek: 3 serbest sayı"
+
+#. Translators: Label for the conversion button.
+#: addon/globalPlugins/num2word.py:94
+msgid "Convert"
+msgstr "Dönüştür"
+
+#. Translators: Label for the button to cancel the conversion.
+#: addon/globalPlugins/num2word.py:99
+msgid "Cancel"
+msgstr "İptal"
+
+#. Translators: label for the checkbox to convert to ordinals.
+#: addon/globalPlugins/num2word.py:122
+msgid "Ordinal mode"
+msgstr "sıralı mod"
+
+#. Translators: label for the combo box to choose the conversion mode.
+#: addon/globalPlugins/num2word.py:127
+msgid "Choose conversion mode:"
+msgstr "Dönüştürme modunu seçin:"
+
+#. Translators: Options to choose the conversion mode that numbers to words supports. There are five modes:
+#: addon/globalPlugins/num2word.py:132
+msgid "None"
+msgstr "Hiçbiri"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "cardinal"
+msgstr "asal"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Ordinal"
+msgstr "Sıralı"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Ordinal number"
+msgstr "Sıralı sayılar"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Year"
+msgstr "Yıl"
+
+#: addon/globalPlugins/num2word.py:132
+msgid "Currency"
+msgstr "Para birimi"
+
+#. Translators: Error message when there is nothing to convert.
+#: addon/globalPlugins/num2word.py:126
+msgid "there's nothing to convert"
+msgstr "dönüştürülecek bir şey bulunamadı"
+
+#. Translators: title of the conversion results dialog.
+#: addon/globalPlugins/num2word.py:136
+msgid "Conversion results"
+msgstr "Dönüştürme sonuçları"
+
+#. Translators: Add-on category name.
+#: addon/globalPlugins/num2word.py:144
+msgid "Number to words"
+msgstr "Sayıdan kelimelere Dönüştürücü"
+
+#. Translators: Description of the conversion of numbers to words in real time mode for input help.
+#: addon/globalPlugins/num2word.py:160
+msgid "Switch reading from numbers to words."
+msgstr "Sayılardan kelimelere alternatif okuma."
+
+#. Translators: message announced when realtime mode is enabled.
+#: addon/globalPlugins/num2word.py:168
+msgid "Num2words enabled."
+msgstr "Sayıdan kelimelere dönüştürücü etkinleştirildi."
+
+#. Translators: message announced when realtime mode is disabled.
+#: addon/globalPlugins/num2word.py:172
+msgid "Num2words disabled."
+msgstr "Sayıdan kelimelere dönüştürücü devre dışı."
+
+#. Translators: Description of the manual conversion dialog for input help.
+#: addon/globalPlugins/num2word.py:177
+msgid "Opens a dialog to convert number to words manually"
+msgstr "Sayıyı el ile kelimelere dönüştürmek için bir iletişim kutusu açar"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: buildVars.py:23
+msgid "Number to word support for NVDA"
+msgstr "NVDA için Sayıları Kelimelere Dönüştürücü"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid ""
+"Implementation of the num2Word python library for NVDA that supports many "
+"languages"
+msgstr ""
+"Birçok dili destekleyen NVDA için num2Word python kitaplığının uygulanması"
