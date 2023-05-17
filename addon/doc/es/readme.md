@@ -73,6 +73,10 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 # Historial de cambios:
 
+## 0.3
+
+* Agregado idioma Turco, gracias a `Umut KORKMAZ`.
+
 ## 0.2
 
 * Ahora el resultado de números a palabras está en mayúsculas.

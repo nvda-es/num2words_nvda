@@ -74,6 +74,10 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 # Changelog:
 
+## 0.3
+
+* Added Turkish language, thanks to `Umut KORKMAZ`.
+
 ## 0.2
 
 * Now the result from numbers to words is capitalized.
