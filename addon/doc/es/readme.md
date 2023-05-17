@@ -74,7 +74,7 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 ## 0.2
 
 * Ahora el resultado de números a palabras está en mayúsculas.
-* Se actualizó la librería num2words al commit `d09862790503a0ec03f3c3ffb2f70e03c41ae2f6`.
+* Se actualizó la librería num2words al commit `da48a319179f19b900d5b01ed394b304e94d31cf`.
 * Se agregaron los modos de conversión soportados por la librería num2words en la interfaz de conversión manual.
 
 ## 0.1

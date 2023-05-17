@@ -47,6 +47,25 @@ def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kw
 				utterance = utterance.capitalize()
 	return utterance
 
+# error message when language isn't supported:
+def _lang_not_supported_MSG():
+	wx.MessageBox(
+		# Translators: Error message if the language is not supported by num2words.
+		_("The language set in the speech synthesis is not supported by the num2words library. If you want to suggest or add this language, you can do it through the library repository: https://github.com/savoirfairelinux/num2words"),
+		# Translators: Title of the error message.
+		_("Error")
+	)
+
+#taken from num2words/num2words/__init__.py
+def check_language(lang):
+	if lang not in num2words.CONVERTER_CLASSES:
+		# ... and then try only the first 2 letters
+		lang = lang[:2]
+	if lang not in num2words.CONVERTER_CLASSES:
+		return False
+	else:
+		return lang
+
 # function modified from NVDA source. (speech/speech.py)
 def speak_mod(speechSequence: SpeechSequence,
 		priority: Spri = None
@@ -129,7 +148,14 @@ class ConversionDialog(wx.Dialog):
 		self.conversion_mode = wx.Choice(
 			self,
 			# Translators: Options to choose the conversion mode that numbers to words supports. There are five modes:
-			choices=[_("None"), _("cardinal"), _("Ordinal"), _("Ordinal number"), _("Year"), _("Currency")]
+			choices=[
+				_("None"),
+				_("cardinal"),
+				_("Ordinal"),
+				_("Ordinal number"),
+				_("Year"),
+				_("Currency")
+			]
 		)
 		sizer = wx.BoxSizer(wx.VERTICAL)
 		sizer.Add(self.write_label, 0, wx.ALL, 5)
@@ -210,13 +236,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	scriptCategory = _("Number to words")
 	def __init__(self):
 		super().__init__()
-		global speak_orig
-		# original object when is disabled:
-		speak_orig = speech._manager.speak
-		# replace the original speak object to the modified speak_mod func:
-		speech._manager.speak = speak_mod
+		# detect if language is supported:
+		if check_language(getCurrentLanguage()) == False:
+			wx.CallLater(500, _lang_not_supported_MSG)
+			return
+		else:
+			global speak_orig
+			# original object when is disabled:
+			speak_orig = speech._manager.speak
+			# replace the original speak object to the modified speak_mod func:
+			speech._manager.speak = speak_mod
 
-# GUI for conversion:
+	# GUI for conversion:
 	def onConvert(self, evt):
 		gui.mainFrame._popupSettingsDialog(ConversionDialog)
 

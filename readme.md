@@ -76,7 +76,7 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 ## 0.2
 
 * Now the result from numbers to words is capitalized.
-* Updated num2words library to commit `d09862790503a0ec03f3c3ffb2f70e03c41ae2f6`.
+* Updated num2words library to commit `da48a319179f19b900d5b01ed394b304e94d31cf`.
 * Added conversion modes supported by the num2words library in the manual conversion GUI.
 
 ## 0.1
