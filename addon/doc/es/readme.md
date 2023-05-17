@@ -34,7 +34,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 * Modo en tiempo real: mientras NVDA hable y exista texto que contenga números dentro de él, la conversión mostrará su resultado y este se transmitirá por voz. Esto, por supuesto, se aplica en cualquier sintetizador de voz que uses.
 * Modo manual: puedes escribir números, texto y/o números a la vez, interactuando mediante un cuadro de diálogo que te permitirá hacerlo. La ventana de diálogo tiene:
 	* Una casilla de verificación para convertir a ordinal.
-	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay cuatro modos de conversión y son los siguientes:
+	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay cinco modos de conversión y son los siguientes:
 		* Ordinales, por ejemplo: 1 = primero.
 		* Números ordinales, por ejemplo: 1 = primero (se aplica el mismo método que la opción para ordinales).
 		* Fecha, por ejemplo (en formato dd/mm/aaaa): 23/07/2023 = Veintitrés  julio  dos mil veintitrés
