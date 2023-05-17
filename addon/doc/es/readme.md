@@ -52,6 +52,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 #### Notas importantes:
 
 * Como la librería soporta muchos idiomas, ten en cuenta que la conversión se realizará en el idioma de tu sintetizador de voz. Siendo así, el idioma de la conversión se cambia automáticamente cuando cambies el del sintetizador.
+* Al iniciar NVDA, se comprueba el idioma de tu sintetizador. Si este no es compatible, se te avisará.
 * La librería num2words puede convertir hasta 27 números seguidos. Si el texto tiene más de 27 números, lo sabrás con un pitido y un mensaje de voz indicándotelo.
 * Actualmente, la verbalización de un número convertido con el cursor no está implementada y, como consecuencia, se deletreará el número convertido.
 * El soporte de conversión de números decimales a palabras se está intentando implementar, ya que hay conflictos con algunas librerías natibas de Python instaladas en NVDA.
@@ -77,6 +78,8 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 * Ahora el resultado de números a palabras está en mayúsculas.
 * Se actualizó la librería num2words al commit `da48a319179f19b900d5b01ed394b304e94d31cf`.
 * Se agregaron los modos de conversión soportados por la librería num2words en la interfaz de conversión manual.
+* Correcciones menores en la interfaz de conversión manual.
+* Se agregó la comprobación de verificación del idioma del sintetizador al iniciar NVDA. Entonces, en caso de que el idioma no se soporte, se deshabilitará una parte del complemento.
 
 ## 0.1
 

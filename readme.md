@@ -53,6 +53,7 @@ This addon has two ways of using numbers to words:
 #### Important notes:
 
 * As the library supports many languages, keep in mind that the conversion is done in the language of your speech synthesizer. This will even apply when you change the language of your synthesizer.
+* When starting NVDA, the synthesizer language is checked. If this is not supported, you will be notified.
 * The num2words library can convert up to 27 consecutive numbers. If the text is longer than 27 numbers, it will let you know with a beep and a speech message.
 * Currently, speaking a converted number with the cursor isn't implemented and as a consequence will spell out the converted number.
 * Decimal numbers to words conversion support is being implemented, as there are conflicts with some native Python libraries installed in NVDA.
@@ -78,6 +79,8 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 * Now the result from numbers to words is capitalized.
 * Updated num2words library to commit `da48a319179f19b900d5b01ed394b304e94d31cf`.
 * Added conversion modes supported by the num2words library in the manual conversion GUI.
+* Minor fixes in the manual conversion GUI.
+* Added synthesizer language check when starting NVDA. So, in case the language isn't supported, a part of this add-on will be disabled.
 
 ## 0.1
 

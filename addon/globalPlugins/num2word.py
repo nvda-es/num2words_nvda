@@ -43,8 +43,9 @@ def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kw
 			)
 		else:
 			utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
-			if not utterance[0].isupper():
-				utterance = utterance.capitalize()
+	utterance = utterance.strip()
+	if not utterance[0].isupper():
+		utterance = utterance.capitalize()
 	return utterance
 
 # error message when language isn't supported:
