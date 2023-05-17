@@ -5,6 +5,7 @@ Autor: Mateo Cedillo
 ## Introducción:
 
 Me inspiré en hacer este pequeño complemento, pues muchos sintetizadores de voz como ETI-Eloquence tienen ciertos defectos en cuanto al procesamiento de números. Por ejemplo, si se tiene dos números separados por espacios y el sintetizador lo interpreta erróneamente como si de un punto decimal se tratara.
+
 Este complemento mejora la lectura de números a palabras para estos casos, soporta números grandes y, además, la librería con la que depende admite muchos idiomas.
 
 ## comparación de resultados entre una entrada de voz original y una convertida
@@ -34,10 +35,10 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 * Modo manual: puedes escribir números, texto y/o números a la vez, interactuando mediante un cuadro de diálogo que te permitirá hacerlo. La ventana de diálogo tiene:
 	* Una casilla de verificación para convertir a ordinal.
 	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay cuatro modos de conversión y son los siguientes:
-		* Ordinales
-		* Números ordinales
-		* Año
-		* Moneda
+		* Ordinales, por ejemplo: 1 = primero.
+		* Números ordinales, por ejemplo: 1 = primero (se aplica el mismo método que la opción para ordinales).
+		* Año, por ejemplo: 1980 = mil novecientos ochenta (no tiene efecto en muchos idiomas).
+		* Moneda, por ejemplo: 2.15 = dos euros con quince céntimos.
 	* Un cuadro de edición para escribir tu entrada.
 	* Un botón convertir. Al presionar este botón, se te mostrará un cuadro de mensaje con el resultado final.
 	* Un botón cancelar: sale del diálogo de conversión.

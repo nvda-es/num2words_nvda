@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-04-04 22:52-0500\n"
 "PO-Revision-Date: 2023-04-05 06:28-0500\n"
-"Last-Translator: \n"
+"Last-Translator: Mateo Cedillo <angelitomateocedillo@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,21 @@ msgstr ""
 #: addon/globalPlugins/num2word.py:39
 msgid "The number is too big! twenty seven numbers maximum"
 msgstr "¡El número es demasiado grande! veintisiete números como máximo"
+#. Translators: Error message if the language is not supported by num2words.
+#: addon/globalPlugins/num2word.py:54
+msgid ""
+"The language set in the speech synthesis is not supported by the num2words "
+"library. If you want to suggest or add this language, you can do it through "
+"the library repository: https://github.com/savoirfairelinux/num2words"
+msgstr ""
+"El idioma establecido de la síntesis de voz no está soportado por la librería "
+"num2words. Si deseas sugerir o agregar este nuevo idioma, puedes hacerlo a través del "
+"repositorio de la librería num2words: https://github.com/savoirfairelinux/num2words"
+
+#. Translators: Title of the error message.
+#: addon/globalPlugins/num2word.py:56 addon/globalPlugins/num2word.py:196
+msgid "Error"
+msgstr "Error"
 
 #. Translators: Name of the conversion dialog.
 #: addon/globalPlugins/num2word.py:88
@@ -82,11 +97,6 @@ msgstr "Moneda"
 #: addon/globalPlugins/num2word.py:126
 msgid "there's nothing to convert"
 msgstr "No hay nada que convertir"
-
-#. Translators: Title of the error message.
-#: addon/globalPlugins/num2word.py:128
-msgid "Error"
-msgstr "Error"
 
 #. Translators: title of the conversion results dialog.
 #: addon/globalPlugins/num2word.py:136

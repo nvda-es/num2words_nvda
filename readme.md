@@ -36,10 +36,10 @@ This addon has two ways of using numbers to words:
 * Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
 	* A checkbox to convert to ordinal.
 	* If the ordinal box is not checked, a combo box will appear to choose the conversion mode. There are four conversion modes and they are as follows:
-		* Ordinal
-		* Ordinal number
-		* Year
-		* Currency
+		* Ordinal, for example: 1 = first.
+		* Ordinal number, for example: 1 = first (aplies the same method that ordinal option).
+		* Year, for example: 1980 =  nineteen eighty 
+		* Currency, for example:  two euro, fifteen cents 
 	* An input box to write your entry.
 	* A convert button. By pressing this button, you will be shown a message box with the final result.
 	* A cancel button: Exits the conversion dialog.
