@@ -32,8 +32,14 @@ Aşağıdaki karşılaştırma, NVDA için [IBMTTS sürücüsü](https://github.
 
 Bu eklentide sayıları kelimelere dönüştürmenin iki yolu bulunur:
 
-* Gerçek zamanlı mod: NVDA konuştuğu ve herhangi bir yerinde sayı içeren bir metin olduğu sürece, dönüştürme sonucu görüntülenecek ve konuşma yoluyla iletilecektir. Bu, kullandığınız herhangi bir konuşma sentezleyici için geçerlidir.
+* Gerçek zamanlı mod: NVDA konuştuğu ve herhangi bir yerinde sayı içeren bir metin olduğu sürece, dönüştürme sonucu görüntülenecek ve konuşma yoluyla iletilecektir. Bu, kullandığınız herhangi bir konuşma sentezleyicisi için geçerlidir.
 * El ile giriş modu: aynı anda sayı veya metin yazabilir, bunu yapmak için bir iletişim kutusu aracılığıyla etkileşimde bulunabilirsiniz. İletişim kutusunda şunlar bulunur:
+	* Sıralı hale dönüştürmek için bir onay kutusu.
+	* Sıra kutusu işaretlenmemişse, dönüştürme modunu seçmek için bir açılan kutu görüntülenir. Dört dönüştürme modu vardır ve bunlar aşağıdaki gibidir:
+		* Sıralı, örneğin: 1 = ilk.
+		* Sıra numarası, örneğin: 1 = ilk (sıra seçeneğiyle aynı yöntemi uygular).
+		* Yıl, örneğin: 1980 = bin dokuz yüz seksen
+		* Para birimi, örneğin: iki euro, on beş sent
 	* Girdinizi yazmak için bir giriş kutusu.
 	* Dönüştür düğmesi. Bu düğmeye basarak, nihai sonucu içeren bir mesaj kutusu gösterilecektir.
 	* İptal düğmesi: Dönüştürme iletişim kutusundan çıkar.
@@ -47,8 +53,10 @@ Bu eklentide sayıları kelimelere dönüştürmenin iki yolu bulunur:
 #### Önemli notlar:
 
 * Kitaplık birçok dili desteklediğinden, dönüştürmenin konuşma sentezleyicinizin dilinde yapıldığını unutmayın. Bu, sentezleyicinizin dilini değiştirdiğinizde bile geçerli olacaktır.
+* NVDA başlatılırken sentezleyici dili kontrol edilir. Kullanılan dil desteklenmiyorsa, size bildirilecektir.
 * num2words kütüphanesi 27 adede kadar ardışık sayıyı dönüştürebilir. Metin 27 sayıdan uzunsa, bir bip sesi ve bir konuşma mesajı ile size bildirir.
 * Şu anda, dönüştürülen bir sayının imleçle söylenmesi uygulanmamaktadır ve sonuç olarak dönüştürülen sayı hecelenecektir.
+* NVDA'da kurulu bazı yerel Python kitaplıklarıyla çakışmalar olduğundan, ondalık sayılardan sözcüklere dönüştürme desteği uygulanmaktadır.
 
 ## Bu eklentiyi derleme:
 
@@ -65,6 +73,14 @@ Bu eklentinin geliştirilmesine yardımcı olmak istiyorsanız `angelitomateoced
 ---
 
 # Değişiklik günlüğü:
+
+## 0.2
+
+* Şimdi sayılardan kelimelere sonuç büyük harfle yazılır.
+* 'da48a319179f19b900d5b01ed394b304e94d31cf' işlemek için num2words kitaplığı güncellendi.
+* Elle dönüştürme GUI'sinde num2words kitaplığı tarafından desteklenen dönüştürme modları eklendi.
+* Elle dönüştürme GUI'sinde küçük düzeltmeler.
+* NVDA'yı başlatırken sentezleyici dil kontrolü eklendi. Bu nedenle, dilin desteklenmemesi durumunda bu eklentinin bir kısmı devre dışı bırakılacaktır.
 
 ## 0.1
 
