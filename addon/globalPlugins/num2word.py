@@ -32,6 +32,47 @@ language = "en"
 if not config.conf['development']['enableScratchpadDir']:
 	addonHandler.initTranslation()
 
+# months definition, useful for date conversion
+# Translators: the twelve months of the year for date conversion.
+months = [
+	[1, _("January")],
+	[2, _("February")],
+	[3, _("March")],
+	[4, _("Appril")],
+	[5, _("May")],
+	[6, _("June")],
+	[7, _("July")],
+	[8, _("August")],
+	[9, _("September")],
+	[10, _("October")],
+	[11, _("November")],
+	[12, _("December")]
+]
+
+def convert_date(date, format):
+	"""
+We have two formats:
+1: dd/mm/aaaa
+2: mm/dd/aaaa
+	"""
+	parts = date.split('/')
+	if len(parts) == 3:
+		day = parts[0]
+		mont = int(parts[1])
+		year = parts[2]
+		if format == 1:
+			return f"{day} {months[mont-1][1]} {year}"
+		elif format == 2:
+			return f"{months[mont-1][1]} {day}, {year}"
+	elif len(parts) == 2:
+		day = parts[0]
+		mont = int(parts[1])
+		if format == 1:
+			return f"{day} {months[mont-1][1]}"
+		elif format == 2:
+			return f"{months[mont-1][1]} {day}"
+	raise Exception("invalid date format")
+
 def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kwargs):
 	match = re.findall(r'[\d./]+', utterance)
 	if len(match) > 0:
@@ -154,6 +195,7 @@ class ConversionDialog(wx.Dialog):
 				_("cardinal"),
 				_("Ordinal"),
 				_("Ordinal number"),
+				_("date"),
 				_("Year"),
 				_("Currency")
 			]
@@ -206,16 +248,27 @@ class ConversionDialog(wx.Dialog):
 			elif self.mode == 3:
 				conversion_type = "ordinal_num"
 			elif self.mode == 4:
-				conversion_type = "year"
+				conversion_type = "date" # custom mode
 			elif self.mode == 5:
+				conversion_type = "year"
+			elif self.mode == 6:
 				conversion_type = "currency"
 			# convert:
-			words = convert_num_to_words(
-				utterance=to_convert,
-				ordinal=self.use_ordinal_only,
-				language=language,
-				to=conversion_type
-			)
+			if not conversion_type == "date":
+				words = convert_num_to_words(
+					utterance=to_convert,
+					ordinal=self.use_ordinal_only,
+					language=language,
+					to=conversion_type
+				)
+			else:
+				words = convert_date(to_convert, 1)
+				words = convert_num_to_words(
+					utterance=words,
+					ordinal=self.use_ordinal_only,
+					language=language,
+					to="year"
+				)
 			wx.MessageBox(
 				words,
 				# Translators: title of the conversion results dialog.

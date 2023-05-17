@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: num2words 0.2\n"
+"Project-Id-Version: num2words 0.3\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-04-04 22:52-0500\n"
 "PO-Revision-Date: 2023-04-05 06:28-0500\n"
@@ -17,6 +17,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
+
+#: addon/globalPlugins/num2word.py:38
+msgid "January"
+msgstr "Enero"
+
+#: addon/globalPlugins/num2word.py:39
+msgid "February"
+msgstr "Febrero"
+
+#: addon/globalPlugins/num2word.py:40
+msgid "March"
+msgstr "Marzo"
+
+#: addon/globalPlugins/num2word.py:41
+msgid "Appril"
+msgstr "Abril"
+
+#: addon/globalPlugins/num2word.py:42
+msgid "May"
+msgstr "Mayo"
+
+#: addon/globalPlugins/num2word.py:43
+msgid "June"
+msgstr "Junio"
+
+#: addon/globalPlugins/num2word.py:44
+msgid "July"
+msgstr "Julio"
+
+#: addon/globalPlugins/num2word.py:45
+msgid "August"
+msgstr "Agosto"
+
+#: addon/globalPlugins/num2word.py:46
+msgid "September"
+msgstr "Septiembre"
+
+#: addon/globalPlugins/num2word.py:47
+msgid "October"
+msgstr "Octubre"
+
+#: addon/globalPlugins/num2word.py:48
+msgid "November"
+msgstr "Noviembre"
+
+#: addon/globalPlugins/num2word.py:49
+msgid "December"
+msgstr "Diciembre"
 
 #. Translators: Error message when the number is too big.
 #: addon/globalPlugins/num2word.py:39

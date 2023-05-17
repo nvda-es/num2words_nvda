@@ -38,6 +38,7 @@ This addon has two ways of using numbers to words:
 	* If the ordinal box is not checked, a combo box will appear to choose the conversion mode. There are four conversion modes and they are as follows:
 		* Ordinal, for example: 1 = first.
 		* Ordinal number, for example: 1 = first (aplies the same method that ordinal option).
+		* Date, for example (dd/mm/aaaa format): 23/07/2023 = Twenty-three  july  twenty twenty-three
 		* Year, for example: 1980 =  nineteen eighty 
 		* Currency, for example:  two euro, fifteen cents 
 	* An input box to write your entry.
@@ -77,6 +78,7 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 ## 0.3
 
 * Added Turkish language, thanks to `Umut KORKMAZ`.
+* Added an alternative to the conversion by year, which would be the date conversion in the manual conversion GUI.
 
 ## 0.2
 
