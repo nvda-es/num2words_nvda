@@ -37,7 +37,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay cinco modos de conversión y son los siguientes:
 		* Ordinales, por ejemplo: 1 = primero.
 		* Números ordinales, por ejemplo: 1 = primero (se aplica el mismo método que la opción para ordinales).
-		* Fecha, por ejemplo (en formato dd/mm/aaaa): 23/07/2023 = Veintitrés  julio  dos mil veintitrés
+		* Fecha, por ejemplo (en formato dd/mm/aaaa): 23/07/2023 = Veintitrés de julio de dos mil veintitrés.
 		* Año, por ejemplo: 1980 = mil novecientos ochenta (no tiene efecto en muchos idiomas).
 		* Moneda, por ejemplo: 2.15 = dos euros con quince céntimos.
 	* Un cuadro de edición para escribir tu entrada.

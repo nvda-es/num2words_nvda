@@ -32,8 +32,8 @@ language = "en"
 if not config.conf['development']['enableScratchpadDir']:
 	addonHandler.initTranslation()
 
-# months definition, useful for date conversion
-# Translators: the twelve months of the year for date conversion.
+
+# Translators: The twelve months of the year for date conversion.
 months = [
 	[1, _("January")],
 	[2, _("February")],
@@ -49,11 +49,13 @@ months = [
 	[12, _("December")]
 ]
 
-def convert_date(date, format):
+# todo: separate the following into a different file, as if it were a new module to include.
+
+def convert_date(date, format, language="en"):
 	"""
-We have two formats:
-1: dd/mm/aaaa
-2: mm/dd/aaaa
+	We have two formats:
+	1: dd/mm/aaaa
+	2: mm/dd/aaaa
 	"""
 	parts = date.split('/')
 	if len(parts) == 3:
@@ -61,14 +63,20 @@ We have two formats:
 		mont = int(parts[1])
 		year = parts[2]
 		if format == 1:
-			return f"{day} {months[mont-1][1]} {year}"
+			if language == "en":
+				return f"{day} {months[mont-1][1]} {year}"
+			elif language == "es":
+				return f"{day} de {months[mont-1][1]} de {year}"
 		elif format == 2:
 			return f"{months[mont-1][1]} {day}, {year}"
 	elif len(parts) == 2:
 		day = parts[0]
 		mont = int(parts[1])
 		if format == 1:
-			return f"{day} {months[mont-1][1]}"
+			if language == "en":
+				return f"{day} {months[mont-1][1]}"
+			elif language == "es":
+				return f"{day} de {months[mont-1][1]}"
 		elif format == 2:
 			return f"{months[mont-1][1]} {day}"
 	raise Exception("invalid date format")
@@ -239,7 +247,7 @@ class ConversionDialog(wx.Dialog):
 				_("Error")
 			)
 		else:
-			language = getCurrentLanguage() # based on the synthesizer language
+			language = check_language(getCurrentLanguage()) # based on the synthesizer language
 			# supported modes:
 			if self.mode == 0 or self.mode == 1:
 				conversion_type = "cardinal"
@@ -262,7 +270,7 @@ class ConversionDialog(wx.Dialog):
 					to=conversion_type
 				)
 			else:
-				words = convert_date(to_convert, 1)
+				words = convert_date(to_convert, 1, language)
 				words = convert_num_to_words(
 					utterance=words,
 					ordinal=self.use_ordinal_only,
