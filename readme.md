@@ -39,7 +39,8 @@ This addon has two ways of using numbers to words:
 		* Ordinal, for example: 1 = first.
 		* Ordinal number, for example: 1 = first (aplies the same method that ordinal option).
 		* Date, for example (dd/mm/aaaa format): 23/07/2023 = Twenty-three  july  twenty twenty-three.
-		* Year, for example: 1980 =  nineteen eighty 
+		* Hour, for example: 12:30:15 = It's twelve hours, thirty minutes and fifteen seconds.
+		* Year, for example: 1980 =  nineteen eighty (has no effect in many languages).
 		* Currency, for example:  two euro, fifteen cents 
 	* An input box to write your entry.
 	* A convert button. By pressing this button, you will be shown a message box with the final result.
@@ -67,6 +68,12 @@ Note: this add-on depends on a submodule, so:
 2. Type `git submodule init` and `git submodule update` in the console to clone the num2words library repository that is set as a module.
 3. If there are no errors, `scons` command should work correctly.
 
+## Add-on(s) I was inspired by
+
+During the development of this add-on, I have been inspired by the following which I thank each of the authors of these add-ons:
+
+* [Clock and Calendar for NVDA](https://addons.nvda-project.org/addons/clock.en.html) because it gave me a base idea of how I could implement the date and time conversion.
+
 ## Contact:
 
 If you want to help improve this addon, you can send an email to `angelitomateocedillo@gmail.com` or make your contributions on the GitHub repo.
@@ -78,7 +85,7 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 ## 0.3
 
 * Added Turkish language, thanks to `Umut KORKMAZ`.
-* Added an alternative to the conversion by year, which would be the date conversion in the manual conversion GUI.
+* Added date and time conversions in the manual conversion GUI.
 
 ## 0.2
 

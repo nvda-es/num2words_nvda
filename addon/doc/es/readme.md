@@ -14,6 +14,7 @@ Esta tabla de comparación demuestra las diferencias del procesamiento de númer
 
 La siguiente comparación ha sido evaluada utilizando el [controlador IBMTTS](https://github.com/davidacm/NVDA-IBMTTS-Driver) para NVDA.
 
+
 ### Usando números largos:
 
 | Idioma | entrada original | Texto de salida | Entrada convertida |
@@ -38,6 +39,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 		* Ordinales, por ejemplo: 1 = primero.
 		* Números ordinales, por ejemplo: 1 = primero (se aplica el mismo método que la opción para ordinales).
 		* Fecha, por ejemplo (en formato dd/mm/aaaa): 23/07/2023 = Veintitrés de julio de dos mil veintitrés.
+		* Hora, por ejemplo: 12:30:15 = Son las doce horas, treinta minutos y quince segundos.
 		* Año, por ejemplo: 1980 = mil novecientos ochenta (no tiene efecto en muchos idiomas).
 		* Moneda, por ejemplo: 2.15 = dos euros con quince céntimos.
 	* Un cuadro de edición para escribir tu entrada.
@@ -66,6 +68,12 @@ Nota: este complemento depende de un submódulo, entonces:
 2. Escribe `git submodule init` y `git submodule update` en la consola para clonar el repositorio de la librería num2words que está establecido como submódulo.
 3. Si no hay errores, el comando `scons` debería funcionar correctamente.
 
+## Complemento(s) en los que me inspiré
+
+Durante en el desarrollo de este complemento, me he inspirado en los siguientes los cuales agradezco a cada uno de los autores de estos complementos:
+
+* [Reloj y calendario para NVDA](https://addons.nvda-project.org/addons/clock.en.html) porque me dio una idea base de cómo podría implementar la conversión de fecha y hora.
+
 ## Contacto:
 
 Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelitomateocedillo@gmail.com` o puedes hacer tus contribuciones en el repositorio de GitHub.
@@ -77,7 +85,7 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 ## 0.3
 
 * Agregado idioma Turco, gracias a `Umut KORKMAZ`.
-* Se agregó la conversión de fecha como alternativa a la de año.
+* Se agregó la conversión de fecha y hora en la ventana de conversiones de forma manual.
 
 ## 0.2
 
