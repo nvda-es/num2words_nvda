@@ -81,6 +81,33 @@ def convert_date(date, format, language="en"):
 			return f"{months[mont-1][1]} {day}"
 	raise Exception("invalid date format")
 
+def convert_hour(hour):
+	hours = int(hour.split(':')[0])
+	minutes = int(hour.split(':')[1])
+	seconds = 00
+	if hour.count(':') == 2:
+		seconds = int(hour.split(':')[2])
+	if hours == 1:
+		hour_str = _("one hour")
+	else:
+		hour_str = f'{hours} {_("hours")}'
+	if minutes == 0:
+		min_str = ''
+	elif minutes == 1:
+		min_str = _("one minute")
+	else:
+		min_str = f'{minutes} {_("minutes")}'
+	if seconds == 0:
+		sec_str = ''
+	elif seconds == 1:
+		sec_str = _("one second")
+	else:
+		sec_str = f'{seconds} {_("seconds")}'
+	if min_str == '' and sec_str == '':
+		return f'{_("It is")} {hour_str} {_("oclock")}'
+	else:
+		return f'{_("It is")} {hour_str}, {min_str} {_("and")} {sec_str}'
+
 def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kwargs):
 	match = re.findall(r'[\d./]+', utterance)
 	if len(match) > 0:
@@ -203,7 +230,8 @@ class ConversionDialog(wx.Dialog):
 				_("cardinal"),
 				_("Ordinal"),
 				_("Ordinal number"),
-				_("date"),
+				_("Date"),
+				_("Hour"),
 				_("Year"),
 				_("Currency")
 			]
@@ -227,7 +255,7 @@ class ConversionDialog(wx.Dialog):
 		# set default parametters:
 		self.conversion_mode.SetSelection(0)
 		self.input_text.SetFocus()
-		# set acceleator keys:
+		# set accelerator keys:
 		self.SetEscapeId(self.cancel.GetId())
 
 	def onOrdinal(self, event):
@@ -238,6 +266,7 @@ class ConversionDialog(wx.Dialog):
 		self.mode = self.conversion_mode.GetSelection()
 
 	def onConvert(self, event):
+		words = None
 		to_convert = self.input_text.GetValue()
 		if not to_convert :
 			wx.MessageBox(
@@ -258,30 +287,57 @@ class ConversionDialog(wx.Dialog):
 			elif self.mode == 4:
 				conversion_type = "date" # custom mode
 			elif self.mode == 5:
-				conversion_type = "year"
+				conversion_type = "hour" # custom mode
 			elif self.mode == 6:
+				conversion_type = "year"
+			elif self.mode == 7:
 				conversion_type = "currency"
 			# convert:
-			if not conversion_type == "date":
+			if conversion_type == "date":
+				try:
+					words = convert_date(to_convert, 1, language)
+					words = convert_num_to_words(
+						utterance=words,
+						ordinal=self.use_ordinal_only,
+						language=language,
+						to="year"
+					)
+				except Exception as e:
+					wx.MessageBox(
+						# Translators: error message when it is an invalid date.
+						_(str(e)),
+						# Translators: Title of the error message.
+						_("Conversion error")
+					)
+			elif conversion_type == "hour":
+				if ":" in to_convert:
+					words = convert_hour(to_convert)
+					words = convert_num_to_words(
+						utterance=words,
+						ordinal=self.use_ordinal_only,
+						language=language,
+						to="cardinal"
+					)
+				else:
+					wx.MessageBox(
+						# Translators: Error message when a valid time is not given.
+						_("This is not a valid hour"),
+						# Translators: Title of the error message.
+						_("Conversion error")
+					)
+			else:
 				words = convert_num_to_words(
 					utterance=to_convert,
 					ordinal=self.use_ordinal_only,
 					language=language,
 					to=conversion_type
 				)
-			else:
-				words = convert_date(to_convert, 1, language)
-				words = convert_num_to_words(
-					utterance=words,
-					ordinal=self.use_ordinal_only,
-					language=language,
-					to="year"
+			if words is not None:
+				wx.MessageBox(
+					words,
+					# Translators: title of the conversion results dialog.
+					_("Conversion results")
 				)
-			wx.MessageBox(
-				words,
-				# Translators: title of the conversion results dialog.
-				_("Conversion results")
-			)
 
 	def OnCancel(self, event):
 		self.Destroy()
