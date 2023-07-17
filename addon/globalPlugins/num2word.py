@@ -87,6 +87,9 @@ def convert_hour(hour):
 	seconds = 00
 	if hour.count(':') == 2:
 		seconds = int(hour.split(':')[2])
+	# checks:
+	if hours > 23 or minutes > 59 or seconds > 59:
+		raise Exception("Invalid hour!")
 	if hours == 1:
 		hour_str = _("one hour")
 	else:
@@ -104,9 +107,11 @@ def convert_hour(hour):
 	else:
 		sec_str = f'{seconds} {_("seconds")}'
 	if min_str == '' and sec_str == '':
-		return f'{_("It is")} {hour_str} {_("oclock")}'
+		return f'{hour_str} {_("oclock")}'
+	elif hour.count(':') == 1:
+		return f'{hour_str} {_("and")} {min_str}'
 	else:
-		return f'{_("It is")} {hour_str}, {min_str} {_("and")} {sec_str}'
+		return f'{hour_str}, {min_str} {_("and")} {sec_str}'
 
 def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kwargs):
 	match = re.findall(r'[\d./]+', utterance)
@@ -311,17 +316,25 @@ class ConversionDialog(wx.Dialog):
 					)
 			elif conversion_type == "hour":
 				if ":" in to_convert:
-					words = convert_hour(to_convert)
-					words = convert_num_to_words(
-						utterance=words,
-						ordinal=self.use_ordinal_only,
-						language=language,
-						to="cardinal"
-					)
+					try:
+						words = convert_hour(to_convert)
+						words = convert_num_to_words(
+							utterance=words,
+							ordinal=self.use_ordinal_only,
+							language=language,
+							to="cardinal"
+						)
+					except Exception as e:
+						wx.MessageBox(
+							# Translators: error message when the hour is invalid.
+							_(str(e)),
+							# Translators: Title of the error message.
+							_("Conversion error")
+						)
 				else:
 					wx.MessageBox(
 						# Translators: Error message when a valid time is not given.
-						_("This is not a valid hour"),
+						_("This is not a valid hour format"),
 						# Translators: Title of the error message.
 						_("Conversion error")
 					)
