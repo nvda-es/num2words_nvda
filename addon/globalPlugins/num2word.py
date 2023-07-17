@@ -135,7 +135,8 @@ def _lang_not_supported_MSG():
 		# Translators: Error message if the language is not supported by num2words.
 		_("The language set in the speech synthesis is not supported by the num2words library. If you want to suggest or add this language, you can do it through the library repository: https://github.com/savoirfairelinux/num2words"),
 		# Translators: Title of the error message.
-		_("Error")
+		_("Error"),
+		wx.ICON_ERROR
 	)
 
 #taken from num2words/num2words/__init__.py
@@ -278,7 +279,8 @@ class ConversionDialog(wx.Dialog):
 				# Translators: Error message when there is nothing to convert.
 				_("there's nothing to convert"),
 				# Translators: Title of the error message.
-				_("Error")
+				_("Error"),
+				wx.ICON_ERROR
 			)
 		else:
 			language = check_language(getCurrentLanguage()) # based on the synthesizer language
@@ -312,7 +314,8 @@ class ConversionDialog(wx.Dialog):
 						# Translators: error message when it is an invalid date.
 						_(str(e)),
 						# Translators: Title of the error message.
-						_("Conversion error")
+						_("Conversion error"),
+						wx.ICON_ERROR
 					)
 			elif conversion_type == "hour":
 				if ":" in to_convert:
@@ -329,14 +332,16 @@ class ConversionDialog(wx.Dialog):
 							# Translators: error message when the hour is invalid.
 							_(str(e)),
 							# Translators: Title of the error message.
-							_("Conversion error")
+							_("Conversion error"),
+							wx.ICON_ERROR
 						)
 				else:
 					wx.MessageBox(
 						# Translators: Error message when a valid time is not given.
 						_("This is not a valid hour format"),
 						# Translators: Title of the error message.
-						_("Conversion error")
+						_("Conversion error"),
+						wx.ICON_ERROR
 					)
 			else:
 				words = convert_num_to_words(
