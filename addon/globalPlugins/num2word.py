@@ -26,7 +26,7 @@ import re
 import gui, wx
 # default params:
 speak_orig = None # speak object if num2words is disabled.
-realtime = False
+realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking.
 language = "en"
 # Since I always run and test this code from scratchpad, it's important to enable translation if only if this is run as a standalone addon. Otherwise, there is an error message.
 if not config.conf['development']['enableScratchpadDir']:
@@ -91,20 +91,26 @@ def convert_hour(hour):
 	if hours > 23 or minutes > 59 or seconds > 59:
 		raise Exception("Invalid hour!")
 	if hours == 1:
+		# Translators: Conversion message if is an one hour.
 		hour_str = _("one hour")
 	else:
+		# Translators: Conversion message if is several hours.
 		hour_str = f'{hours} {_("hours")}'
 	if minutes == 0:
 		min_str = ''
 	elif minutes == 1:
+		# Translators: Conversion message if is an one minute.
 		min_str = _("one minute")
 	else:
+		# Translators: Conversion message if is several minutes.
 		min_str = f'{minutes} {_("minutes")}'
 	if seconds == 0:
 		sec_str = ''
 	elif seconds == 1:
+		# Translators: Conversion message if is an one second.
 		sec_str = _("one second")
 	else:
+		# Translators: Conversion message if is several seconds.
 		sec_str = f'{seconds} {_("seconds")}'
 	if min_str == '' and sec_str == '':
 		return f'{hour_str} {_("oclock")}'
