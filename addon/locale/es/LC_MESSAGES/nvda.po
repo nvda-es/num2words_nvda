@@ -150,7 +150,7 @@ msgid "Ordinal number"
 msgstr "Número ordinal"
 
 #: addon/globalPlugins/num2word.py:245
-msgid "date"
+msgid "Date"
 msgstr "FECHA"
 
 #: addon\globalPlugins\num2word.py:246
