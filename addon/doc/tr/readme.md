@@ -35,10 +35,12 @@ Bu eklentide sayıları kelimelere dönüştürmenin iki yolu bulunur:
 * Gerçek zamanlı mod: NVDA konuştuğu ve herhangi bir yerinde sayı içeren bir metin olduğu sürece, dönüştürme sonucu görüntülenecek ve konuşma yoluyla iletilecektir. Bu, kullandığınız herhangi bir konuşma sentezleyicisi için geçerlidir.
 * El ile giriş modu: aynı anda sayı veya metin yazabilir, bunu yapmak için bir iletişim kutusu aracılığıyla etkileşimde bulunabilirsiniz. İletişim kutusunda şunlar bulunur:
 	* Sıralı hale dönüştürmek için bir onay kutusu.
-	* Sıra kutusu işaretlenmemişse, dönüştürme modunu seçmek için bir açılan kutu görüntülenir. Dört dönüştürme modu vardır ve bunlar aşağıdaki gibidir:
+	* Sıra kutusu işaretlenmemişse, dönüştürme modunu seçmek için bir açılan kutu görüntülenir. beş dönüştürme modu vardır ve bunlar aşağıdaki gibidir:
 		* Sıralı, örneğin: 1 = ilk.
 		* Sıra numarası, örneğin: 1 = ilk (sıra seçeneğiyle aynı yöntemi uygular).
-		* Yıl, örneğin: 1980 = bin dokuz yüz seksen
+		* Tarih, örneğin (gg/aa/aaaa formatı): 23/07/2023 = Yirmi üç temmuz yirmi yirmi üç.
+		* Hour, for example: 12:30:15 = It's twelve hours, thirty minutes and fifteen seconds.
+		* Yıl, örneğin: 1980 = bin dokuz yüz seksen (birçok dilde etkisi yoktur).
 		* Para birimi, örneğin: iki euro, on beş sent
 	* Girdinizi yazmak için bir giriş kutusu.
 	* Dönüştür düğmesi. Bu düğmeye basarak, nihai sonucu içeren bir mesaj kutusu gösterilecektir.
@@ -66,6 +68,10 @@ Not: Bu eklenti bir alt modüle bağlıdır, yani:
 2. Modül olarak ayarlanan num2words kitaplık deposunu kopyalamak için konsola "git submodule init" ve "git submodule update" yazın.
 3. Hata yoksa `scons` komutu düzgün çalışmalıdır.
 
+## İlham aldığım eklentiler:
+
+* [NVDA için Saat ve Takvim](https://addons.nvda-project.org/addons/clock.en.html) çünkü bana tarih ve saat dönüşümünü nasıl uygulayabileceğim konusunda temel bir fikir verdi.
+
 ## İletişim:
 
 Bu eklentinin geliştirilmesine yardımcı olmak istiyorsanız `angelitomateocedillo@gmail.com` adresine e-posta gönderebilir veya GitHub deposunda katkılarınızı yapabilirsiniz.
@@ -73,6 +79,11 @@ Bu eklentinin geliştirilmesine yardımcı olmak istiyorsanız `angelitomateoced
 ---
 
 # Değişiklik günlüğü:
+
+## 0.3
+
+* Türkçe dil eklendi, Umut KORKMAZ'a teşekkürler.
+* El ile  dönüştürme GUI'sine tarih ve saat dönüşümleri eklendi.
 
 ## 0.2
 
