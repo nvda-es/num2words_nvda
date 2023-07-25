@@ -29,7 +29,7 @@ speak_orig = None # speak object if num2words is disabled.
 realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking.
 language = "en"
 # Since I always run and test this code from scratchpad, it's important to enable translation if only if this is run as a standalone addon. Otherwise, there is an error message.
-if not config.conf['development']['enableScratchpadDir']:
+if not "scratchpad" in num2words.__file__.split("\\"):
 	addonHandler.initTranslation()
 
 
@@ -54,8 +54,8 @@ months = [
 def convert_date(date, format, language="en"):
 	"""
 	We have two formats:
-	1: dd/mm/aaaa
-	2: mm/dd/aaaa
+	1: dd/mm/yyyy
+	2: mm/dd/yyyy
 	"""
 	parts = date.split('/')
 	if len(parts) == 3:
@@ -119,7 +119,7 @@ def convert_hour(hour):
 	else:
 		return f'{hour_str}, {min_str} {_("and")} {sec_str}'
 
-def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kwargs):
+def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, currency="EUR", **kwargs):
 	match = re.findall(r'[\d./]+', utterance)
 	if len(match) > 0:
 		if len(re.findall(r'\d{28,}', utterance)) > 0:
@@ -129,9 +129,12 @@ def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, **kw
 				_("The number is too big! twenty seven numbers maximum")
 			)
 		else:
-			utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
-	utterance = utterance.strip()
-	if not utterance[0].isupper():
+			if not to == "currency":
+				utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
+			else:
+				utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to, currency=currency) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
+	#utterance = utterance.strip()
+	if utterance and not utterance[0].isupper():
 		utterance = utterance.capitalize()
 	return utterance
 
@@ -207,6 +210,9 @@ class ConversionDialog(wx.Dialog):
 		# declare:
 		self.use_ordinal_only=False
 		self.mode=0
+		self.currency = "EUR"
+		self.language = check_language(getCurrentLanguage()) # based on the synthesizer language
+		self.currencies = list(num2words.CONVERTER_CLASSES[self.language].CURRENCY_FORMS.keys())
 		self.write_label = wx.StaticText(
 			self,
 			# Translators: Label for the input box for the conversion.
@@ -236,7 +242,7 @@ class ConversionDialog(wx.Dialog):
 		)
 		self.conversion_mode = wx.Choice(
 			self,
-			# Translators: Options to choose the conversion mode that numbers to words supports. There are five modes:
+			# Translators: Options to choose the conversion mode that numbers to words supports. There are seven modes:
 			choices=[
 				_("None"),
 				_("cardinal"),
@@ -248,12 +254,23 @@ class ConversionDialog(wx.Dialog):
 				_("Currency")
 			]
 		)
+		self.currencies_label = wx.StaticText(
+			self,
+			# Translators: label for the currency selection combo box.
+			label=_("Select the currency to convert:")
+		)
+		self.select_currencies = wx.Choice(
+			self,
+			choices=self.currencies
+		)
 		sizer = wx.BoxSizer(wx.VERTICAL)
 		sizer.Add(self.write_label, 0, wx.ALL, 5)
 		sizer.Add(self.input_text, 0, wx.EXPAND|wx.ALL, 5)
 		hbox = wx.BoxSizer(wx.HORIZONTAL)
 		hbox.Add(self.conversion_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5)
 		hbox.Add(self.conversion_mode, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5)
+		hbox.Add(self.currencies_label, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5)
+		hbox.Add(self.select_currencies, 0, wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5)
 		sizer.Add(hbox, 0, wx.EXPAND|wx.ALL, 5)
 		sizer.Add(self.ordinal, 0, wx.ALL, 5)
 		sizer.Add(self.convert, 0, wx.ALIGN_CENTER|wx.ALL, 5)
@@ -261,12 +278,17 @@ class ConversionDialog(wx.Dialog):
 		self.SetSizer(sizer)
 		self.Bind(wx.EVT_CHECKBOX, self.onOrdinal, self.ordinal)
 		self.Bind(wx.EVT_CHOICE, self.onConversion_mode, self.conversion_mode)
+		self.Bind(wx.EVT_CHOICE, self.onSelect_currencies, self.select_currencies)
 		self.Bind(wx.EVT_BUTTON, self.onConvert, self.convert)
 		self.Bind(wx.EVT_BUTTON, self.OnCancel, self.cancel)
 		self.Bind(wx.EVT_CHAR_HOOK, self.accel_keys)
 		# set default parametters:
 		self.conversion_mode.SetSelection(0)
+		self.select_currencies.SetSelection(0)
 		self.input_text.SetFocus()
+		# by default, disabling currency controls:
+		self.currencies_label.Disable()
+		self.select_currencies.Disable()
 		# set accelerator keys:
 		self.SetEscapeId(self.cancel.GetId())
 
@@ -276,6 +298,15 @@ class ConversionDialog(wx.Dialog):
 
 	def onConversion_mode(self, event):
 		self.mode = self.conversion_mode.GetSelection()
+		if self.mode == 7:
+			self.currencies_label.Enable()
+			self.select_currencies.Enable()
+		else:
+			self.currencies_label.Disable()
+			self.select_currencies.Disable()
+
+	def onSelect_currencies(self, event):
+		self.currency = self.select_currencies.GetStringSelection()
 
 	def onConvert(self, event):
 		words = None
@@ -289,7 +320,6 @@ class ConversionDialog(wx.Dialog):
 				wx.ICON_ERROR
 			)
 		else:
-			language = check_language(getCurrentLanguage()) # based on the synthesizer language
 			# supported modes:
 			if self.mode == 0 or self.mode == 1:
 				conversion_type = "cardinal"
@@ -308,11 +338,11 @@ class ConversionDialog(wx.Dialog):
 			# convert:
 			if conversion_type == "date":
 				try:
-					words = convert_date(to_convert, 1, language)
+					words = convert_date(to_convert, 1, self.language)
 					words = convert_num_to_words(
 						utterance=words,
 						ordinal=self.use_ordinal_only,
-						language=language,
+						language=self.language,
 						to="year"
 					)
 				except Exception as e:
@@ -330,7 +360,7 @@ class ConversionDialog(wx.Dialog):
 						words = convert_num_to_words(
 							utterance=words,
 							ordinal=self.use_ordinal_only,
-							language=language,
+							language=self.language,
 							to="cardinal"
 						)
 					except Exception as e:
@@ -350,11 +380,13 @@ class ConversionDialog(wx.Dialog):
 						wx.ICON_ERROR
 					)
 			else:
+				print(self.currency)
 				words = convert_num_to_words(
 					utterance=to_convert,
 					ordinal=self.use_ordinal_only,
-					language=language,
-					to=conversion_type
+					language=self.language,
+					to=conversion_type,
+					currency=self.currency
 				)
 			if words is not None:
 				wx.MessageBox(
