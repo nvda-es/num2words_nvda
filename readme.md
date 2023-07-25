@@ -41,7 +41,8 @@ This addon has two ways of using numbers to words:
 		* Date, for example (dd/mm/aaaa format): 23/07/2023 = Twenty-three  july  twenty twenty-three.
 		* Hour, for example: 12:30:15 = It's twelve hours, thirty minutes and fifteen seconds.
 		* Year, for example: 1980 =  nineteen eighty (has no effect in many languages).
-		* Currency, for example:  two euro, fifteen cents 
+		* Currency, for example: 2.15 = two euro, fifteen cents.
+			* once you select this option, a new combo box will appear to choose the currency. Each language has different currencies apart from the euro, and the list can vary.
 	* An input box to write your entry.
 	* A convert button. By pressing this button, you will be shown a message box with the final result.
 	* A cancel button: Exits the conversion dialog.
@@ -81,6 +82,14 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 ---
 
 # Changelog:
+
+## 0.4
+
+* now, when selecting the conversion mode by currency, a combo box has been added to choose a currency to be converted, through the list of currencies supported by the selected language and determined by the synthesizer.
+* added Ukrainian language, thanks to `Георгій` and `Володимир Пиріг`.
+* Fixed: Now the add-on translation should be enabled even if the scratchpad option is enabled in the settings pannel. Thanks, `Dalen`.
+* Fixed: `string index out of range` error when browsing websites. Thanks, `Volodymyr`.
+* Fixed: Realtime conversion and NVDA speech separators. The add-on should now separate the converted words correctly.
 
 ## 0.3
 

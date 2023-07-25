@@ -42,6 +42,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 		* Hora, por ejemplo: 12:30:15 = Son las doce horas, treinta minutos y quince segundos.
 		* Año, por ejemplo: 1980 = mil novecientos ochenta (no tiene efecto en muchos idiomas).
 		* Moneda, por ejemplo: 2.15 = dos euros con quince céntimos.
+			* Una vez que selecciones esta opción, aparecerá un nuevo cuadro combinado para elegir la moneda. Cada idioma tiene monedas diferentes además del euro, y la lista puede variar.
 	* Un cuadro de edición para escribir tu entrada.
 	* Un botón convertir. Al presionar este botón, se te mostrará un cuadro de mensaje con el resultado final.
 	* Un botón cancelar: sale del diálogo de conversión.
@@ -81,6 +82,14 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 ---
 
 # Historial de cambios:
+
+## 0.4
+
+* Ahora, al seleccionar el modo de conversión por moneda, se agregó un cuadro combinado para seleccionar la moneda a ser convertida, a través de una lista de monedas que soporta el idioma seleccionado y determinado por el sintetizador.
+* Se agregó el idioma Ucraniano, gracias a `Георгій` y `Володимир Пиріг`.
+* Arreglado: Ahora la traducción del complemento debería activarse, incluso si la opción scratchpad está activada en el panel de opciones. Gracias, `Dalen`.
+* Arreglado: error `string index out of range` al navegar por sitios web. Gracias, `Volodymyr`.
+* Arreglado: La conversión en tiempo real y los separadores de voz de NVDA. El complemento ahora debería separar las palabras convertidas correctamente.
 
 ## 0.3
 
