@@ -211,19 +211,27 @@ class ConversionDialog(wx.Dialog):
 		self.use_ordinal_only=False
 		self.mode=0
 		self.currency = "EUR"
+		self.thisLanguageHasCurrencies = False
 		self.language = check_language(getCurrentLanguage()) # based on the synthesizer language
 		self.currencies = list(num2words.CONVERTER_CLASSES[self.language].CURRENCY_FORMS.keys())
+		if not self.currencies:
+			self.currencies = [
+				# Translators: message to inform the user that there is no type of currency to convert with this language.
+				_("There are no currencies to convert for this language. Using default.")
+			]
+		else:
+			self.thisLanguageHasCurrencies = True
 		self.write_label = wx.StaticText(
 			self,
 			# Translators: Label for the input box for the conversion.
-			label=_("Write something here, example: 3 free throws")
+			label="&"+_("Write something here, example: 3 free throws")
 		)
 
 		self.input_text = wx.TextCtrl(self)
 		self.convert = wx.Button(
 			self,
 			# Translators: Label for the conversion button.
-			label=_("Convert")
+			label="&"+_("Convert")
 		)
 		self.cancel = wx.Button(
 			self,
@@ -238,7 +246,7 @@ class ConversionDialog(wx.Dialog):
 		self.conversion_label = wx.StaticText(
 			self,
 			# Translators: label for the combo box to choose the conversion mode.
-			label=_("Choose conversion mode:")
+			label=_("Choose conversion &mode:")
 		)
 		self.conversion_mode = wx.Choice(
 			self,
@@ -284,7 +292,8 @@ class ConversionDialog(wx.Dialog):
 		self.Bind(wx.EVT_CHAR_HOOK, self.accel_keys)
 		# set default parametters:
 		self.conversion_mode.SetSelection(0)
-		self.select_currencies.SetSelection(0)
+		if self.thisLanguageHasCurrencies:
+			self.select_currencies.SetSelection(0)
 		self.input_text.SetFocus()
 		# by default, disabling currency controls:
 		self.currencies_label.Disable()

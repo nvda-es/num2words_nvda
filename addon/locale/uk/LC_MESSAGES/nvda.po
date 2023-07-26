@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'num2words' '0.3'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2023-07-25 12:18-0500\n"
+"POT-Creation-Date: 2023-07-25 19:25-0500\n"
 "PO-Revision-Date: 2023-07-25 12:25+0300\n"
 "Last-Translator: Heorhii <nvda.translation.uk@gmail.com>\n"
 "Language-Team: \n"
@@ -97,7 +97,7 @@ msgstr ""
 "бібліотеки: https://github.com/savoirfairelinux/num2words"
 
 #. Translators: Title of the error message.
-#: addon\globalPlugins\num2word.py:147 addon\globalPlugins\num2word.py:319
+#: addon\globalPlugins\num2word.py:147 addon\globalPlugins\num2word.py:328
 msgid "Error"
 msgstr "Помилка"
 
@@ -106,111 +106,117 @@ msgstr "Помилка"
 msgid "Convert number to words"
 msgstr "Перетворення чисел у слова"
 
+#. Translators: message to inform the user that there is no type of currency to convert with this language.
+#: addon\globalPlugins\num2word.py:220
+msgid "There are no currencies to convert for this language. Using default."
+msgstr ""
+
 #. Translators: Label for the input box for the conversion.
-#: addon\globalPlugins\num2word.py:219
+#: addon\globalPlugins\num2word.py:227
 msgid "Write something here, example: 3 free throws"
 msgstr "Напишіть тут що-небудь, наприклад: 3 штрафні кидки"
 
 #. Translators: Label for the conversion button.
-#: addon\globalPlugins\num2word.py:226
+#: addon\globalPlugins\num2word.py:234
 msgid "Convert"
 msgstr "Перетворити"
 
 #. Translators: Label for the button to cancel the conversion.
-#: addon\globalPlugins\num2word.py:231
+#: addon\globalPlugins\num2word.py:239
 msgid "Cancel"
 msgstr "Скасувати"
 
 #. Translators: label for the checkbox to convert to ordinals.
-#: addon\globalPlugins\num2word.py:236
+#: addon\globalPlugins\num2word.py:244
 msgid "Ordinal mode"
 msgstr "Порядковий режим"
 
 #. Translators: label for the combo box to choose the conversion mode.
-#: addon\globalPlugins\num2word.py:241
-msgid "Choose conversion mode:"
+#: addon\globalPlugins\num2word.py:249
+#, fuzzy
+msgid "Choose conversion &mode:"
 msgstr "Виберіть режим перетворення:"
 
-#: addon\globalPlugins\num2word.py:247
+#: addon\globalPlugins\num2word.py:255
 msgid "None"
 msgstr "Немає"
 
-#: addon\globalPlugins\num2word.py:248
+#: addon\globalPlugins\num2word.py:256
 msgid "cardinal"
 msgstr "Кількісний"
 
-#: addon\globalPlugins\num2word.py:249
+#: addon\globalPlugins\num2word.py:257
 msgid "Ordinal"
 msgstr "Порядковий"
 
-#: addon\globalPlugins\num2word.py:250
+#: addon\globalPlugins\num2word.py:258
 msgid "Ordinal number"
 msgstr "Порядковий номер"
 
-#: addon\globalPlugins\num2word.py:251
+#: addon\globalPlugins\num2word.py:259
 msgid "Date"
 msgstr "Дата"
 
-#: addon\globalPlugins\num2word.py:252
+#: addon\globalPlugins\num2word.py:260
 msgid "Hour"
 msgstr "Година"
 
-#: addon\globalPlugins\num2word.py:253
+#: addon\globalPlugins\num2word.py:261
 msgid "Year"
 msgstr "Рік"
 
-#: addon\globalPlugins\num2word.py:254
+#: addon\globalPlugins\num2word.py:262
 msgid "Currency"
 msgstr "Валюта"
 
 #. Translators: label for the currency selection combo box.
-#: addon\globalPlugins\num2word.py:260
+#: addon\globalPlugins\num2word.py:268
 msgid "Select the currency to convert:"
 msgstr ""
 
 #. Translators: Error message when there is nothing to convert.
-#: addon\globalPlugins\num2word.py:317
+#: addon\globalPlugins\num2word.py:326
 msgid "there's nothing to convert"
 msgstr "немає що конвертувати"
 
 #. Translators: Title of the error message.
-#: addon\globalPlugins\num2word.py:353 addon\globalPlugins\num2word.py:371
-#: addon\globalPlugins\num2word.py:379
+#: addon\globalPlugins\num2word.py:362 addon\globalPlugins\num2word.py:380
+#: addon\globalPlugins\num2word.py:388
 msgid "Conversion error"
 msgstr "Помилка перетворення"
 
 #. Translators: Error message when a valid time is not given.
-#: addon\globalPlugins\num2word.py:377
+#: addon\globalPlugins\num2word.py:386
 msgid "This is not a valid hour format"
 msgstr "Цей формат години неправильний"
 
 #. Translators: title of the conversion results dialog.
-#: addon\globalPlugins\num2word.py:395
+#: addon\globalPlugins\num2word.py:404
 msgid "Conversion results"
 msgstr "Результати перетворення"
 
 #. Translators: Add-on category name.
-#: addon\globalPlugins\num2word.py:410
+#: addon\globalPlugins\num2word.py:419
 msgid "Number to words"
 msgstr "Число в слова"
 
 #. Translators: Description of the conversion of numbers to words in real time mode for input help.
-#: addon\globalPlugins\num2word.py:431
+#: addon\globalPlugins\num2word.py:440
 msgid "Switch reading from numbers to words."
 msgstr "Перемикає читання чисел на слова."
 
 #. Translators: message announced when realtime mode is enabled.
-#: addon\globalPlugins\num2word.py:439
+#: addon\globalPlugins\num2word.py:448
 msgid "Num2words enabled."
 msgstr "Num2words увімкнено."
 
 #. Translators: message announced when realtime mode is disabled.
-#: addon\globalPlugins\num2word.py:443
+#: addon\globalPlugins\num2word.py:452
 msgid "Num2words disabled."
 msgstr "Num2words вимкнено."
 
 #. Translators: Description of the manual conversion dialog for input help.
-#: addon\globalPlugins\num2word.py:448
+#: addon\globalPlugins\num2word.py:457
 msgid "Opens a dialog to convert number to words manually"
 msgstr "Відкриває діалог для ручного перетворення чисел у слова"
 
