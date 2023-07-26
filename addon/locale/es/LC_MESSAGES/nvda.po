@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: num2words 0.3\n"
+"Project-Id-Version: num2words 0.4\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-07-25 19:25-0500\n"
 "PO-Revision-Date: 2023-04-05 06:28-0500\n"
@@ -111,7 +111,7 @@ msgstr "Convertir número a palabras"
 #. Translators: message to inform the user that there is no type of currency to convert with this language.
 #: addon\globalPlugins\num2word.py:220
 msgid "There are no currencies to convert for this language. Using default."
-msgstr ""
+msgstr "No hay monedas a convertir para este idioma. Usando el predeterminado."
 
 #. Translators: Label for the input box for the conversion.
 #: addon\globalPlugins\num2word.py:227
@@ -137,7 +137,7 @@ msgstr "Modo ordinal"
 #: addon\globalPlugins\num2word.py:249
 #, fuzzy
 msgid "Choose conversion &mode:"
-msgstr "Selecciona el modo de conversión:"
+msgstr "Selecciona el &modo de conversión:"
 
 #: addon\globalPlugins\num2word.py:255
 msgid "None"
