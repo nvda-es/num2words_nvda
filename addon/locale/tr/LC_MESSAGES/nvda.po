@@ -135,7 +135,6 @@ msgstr "sıralı mod"
 
 #. Translators: label for the combo box to choose the conversion mode.
 #: addon\globalPlugins\num2word.py:249
-#, fuzzy
 msgid "Choose conversion &mode:"
 msgstr "Dönüştürme modunu seçin:"
 

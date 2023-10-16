@@ -135,7 +135,6 @@ msgstr "Modo ordinal"
 
 #. Translators: label for the combo box to choose the conversion mode.
 #: addon\globalPlugins\num2word.py:249
-#, fuzzy
 msgid "Choose conversion &mode:"
 msgstr "Selecciona el &modo de conversión:"
 
