@@ -79,7 +79,8 @@ def convert_date(date, format, language="en"):
 				return f"{day} de {months[mont-1][1]}"
 		elif format == 2:
 			return f"{months[mont-1][1]} {day}"
-	raise Exception("invalid date format")
+	# Translators: Message when the date is not valid.
+	raise Exception(_("invalid date format"))
 
 def convert_hour(hour):
 	hours = int(hour.split(':')[0])
@@ -89,7 +90,8 @@ def convert_hour(hour):
 		seconds = int(hour.split(':')[2])
 	# checks:
 	if hours > 23 or minutes > 59 or seconds > 59:
-		raise Exception("Invalid hour!")
+		# Translators: Message when it is an invalid hour. I mean, out of range to 23:59:59
+		raise Exception(_("Invalid hour!"))
 	if hours == 1:
 		# Translators: Conversion message if is an one hour.
 		hour_str = _("one hour")
@@ -389,7 +391,6 @@ class ConversionDialog(wx.Dialog):
 						wx.ICON_ERROR
 					)
 			else:
-				print(self.currency)
 				words = convert_num_to_words(
 					utterance=to_convert,
 					ordinal=self.use_ordinal_only,
