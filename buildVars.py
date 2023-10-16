@@ -37,7 +37,7 @@ addon_info = {
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
 	"addon_minimumNVDAVersion": 2023.1,
 	# Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-	"addon_lastTestedNVDAVersion": 2023.1,
+	"addon_lastTestedNVDAVersion": 2024.1,
 	# Add-on update channel (default is None, denoting stable releases,
 	# and for development releases, use "dev".)
 	# Do not change unless you know what you are doing!
@@ -63,7 +63,7 @@ i18nSources = pythonSources + ["buildVars.py"]
 
 # Files that will be ignored when building the nvda-addon file
 # Paths are relative to the addon directory, not to the root directory of your addon sources.
-excludedFiles = ["addon/globalPlugins/num2words/tests/*.py"]
+excludedFiles = ["globalPlugins\\num2words\\tests\\*.py"]
 
 # Base language for the NVDA add-on
 # If your add-on is written in a language other than english, modify this variable.

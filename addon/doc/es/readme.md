@@ -87,9 +87,13 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 * Ahora, al seleccionar el modo de conversión por moneda, se agregó un cuadro combinado para seleccionar la moneda a ser convertida, a través de una lista de monedas que soporta el idioma seleccionado y determinado por el sintetizador.
 * Se agregó el idioma Ucraniano, gracias a `Георгій` y `Володимир Пиріг`.
+* Actualizado num2words a commit `305242f`
+	* Agrega soporte para eslovaco.
+	* Actualizaciones y refactorizaciones de código para el ucraniano.
 * Arreglado: Ahora la traducción del complemento debería activarse, incluso si la opción scratchpad está activada en el panel de opciones. Gracias, `Dalen`.
 * Arreglado: error `string index out of range` al navegar por sitios web. Gracias, `Volodymyr`.
 * Arreglado: La conversión en tiempo real y los separadores de voz de NVDA. El complemento ahora debería separar las palabras convertidas correctamente.
+* Arreglado: compatibilidad con NVDA 2024.1.
 
 ## 0.3
 
