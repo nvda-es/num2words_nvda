@@ -87,9 +87,9 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 * now, when selecting the conversion mode by currency, a combo box has been added to choose a currency to be converted, through the list of currencies supported by the selected language and determined by the synthesizer.
 * added Ukrainian language, thanks to `Георгій` and `Володимир Пиріг`.
-* Updated num2words to commit `305242f`
-	* Adds support for Slovak.
-	* Updates and code refactorings for Ukrainian.
+* Updated num2words to 0.5.13, commit `305242f`
+	* Adds support for Belarusian and Slovak.
+	* Updates and code refactorings for Rusian and Ukrainian.
 * Fixed: Now the add-on translation should be enabled even if the scratchpad option is enabled in the settings pannel. Thanks, `Dalen`.
 * Fixed: `string index out of range` error when browsing websites. Thanks, `Volodymyr`.
 * Fixed: Realtime conversion and NVDA speech separators. The add-on should now separate the converted words correctly.
