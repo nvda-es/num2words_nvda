@@ -56,7 +56,7 @@ addon_info = {
 # pythonSources = ["addon/globalPlugins/*.py"]
 # For more information on SCons Glob expressions please take a look at:
 # https://scons.org/doc/production/HTML/scons-user/apd.html
-pythonSources = ["addon/globalPlugins/num2word.py", "addon/globalPlugins/num2words/num2words/*.py"]
+pythonSources = ["addon/globalPlugins/n2w/__init__.py", "addon/globalPlugins/n2w/tools/*.py", "addon/globalPlugins/n2w/num2words/*.py"]
 
 # Files that contain strings for translation. Usually your python sources
 i18nSources = pythonSources + ["buildVars.py"]

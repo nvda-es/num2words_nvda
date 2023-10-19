@@ -32,9 +32,8 @@ from gui.settingsDialogs import SettingsPanel
 speak_orig = None # speak object if num2words is disabled.
 realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking.
 language = "en"
-# Since I always run and test this code from scratchpad, it's important to enable translation if only if this is run as a standalone addon. Otherwise, there is an error message.
-if not "scratchpad" in num2words.__file__.split("\\"):
-	addonHandler.initTranslation()
+
+addonHandler.initTranslation()
 
 # Set default Add-On settings:
 confspec = {
@@ -363,7 +362,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			speak_orig = speech._manager.speak
 			# replace the original speak object to the modified speak_mod func:
 			speech._manager.speak = speak_mod
-		# If the config to enhable num2words on startup is enhabled...
+		# If the config to enable num2words on startup is enabled...
 		if config.conf["num2words"]["enableOnStartup"]:
 			realtime = True
 
