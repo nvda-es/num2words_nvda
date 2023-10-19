@@ -86,6 +86,7 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 ## 0.4
 
 * Ahora, al seleccionar el modo de conversión por moneda, se agregó un cuadro combinado para seleccionar la moneda a ser convertida, a través de una lista de monedas que soporta el idioma seleccionado y determinado por el sintetizador.
+* Se agregó una opción en el panel de opciones de NVDA para activar la lectura de números a palabras en tiempo real al iniciar.
 * Se agregó el idioma Ucraniano, gracias a `Георгій` y `Володимир Пиріг`.
 * Actualizado num2words a 0.5.13, commit `305242f`
 	* Agrega soporte para bielorruso y eslovaco.

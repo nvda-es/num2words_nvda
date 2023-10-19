@@ -86,8 +86,9 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 ## 0.4
 
 * now, when selecting the conversion mode by currency, a combo box has been added to choose a currency to be converted, through the list of currencies supported by the selected language and determined by the synthesizer.
+* Added an option in the NVDA settings panel to enable reading numbers to words in real time mode on startup.
 * added Ukrainian language, thanks to `Георгій` and `Володимир Пиріг`.
-* Updated num2words to 0.5.13, commit `305242f`
+* Updated num2words to 0.5.13
 	* Adds support for Belarusian and Slovak.
 	* Updates and code refactorings for Rusian and Ukrainian.
 * Fixed: Now the add-on translation should be enabled even if the scratchpad option is enabled in the settings pannel. Thanks, `Dalen`.
