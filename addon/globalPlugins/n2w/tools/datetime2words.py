@@ -1,7 +1,7 @@
 # date and time conversion.
 # By: Mateo C.
-#import addonHandler
-#addonHandler.initTranslation()
+import addonHandler
+addonHandler.initTranslation()
 
 # Translators: The twelve months of the year for date conversion.
 months = [
