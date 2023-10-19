@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sayıdan Kelimelere 0.4\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2023-10-16 15:34-0500\n"
+"POT-Creation-Date: 2023-10-19 10:41-0500\n"
 "PO-Revision-Date: 2023-07-22 23:45+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
@@ -17,219 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
-
-#: addon\globalPlugins\num2word.py:38
-msgid "January"
-msgstr "Ocak"
-
-#: addon\globalPlugins\num2word.py:39
-msgid "February"
-msgstr "Şubat"
-
-#: addon\globalPlugins\num2word.py:40
-msgid "March"
-msgstr "Mart"
-
-#: addon\globalPlugins\num2word.py:41
-msgid "Appril"
-msgstr "Nisan"
-
-#: addon\globalPlugins\num2word.py:42
-msgid "May"
-msgstr "Mayıs"
-
-#: addon\globalPlugins\num2word.py:43
-msgid "June"
-msgstr "Haziran"
-
-#: addon\globalPlugins\num2word.py:44
-msgid "July"
-msgstr "Temmuz"
-
-#: addon\globalPlugins\num2word.py:45
-msgid "August"
-msgstr "Ağustos"
-
-#: addon\globalPlugins\num2word.py:46
-msgid "September"
-msgstr "Eylül"
-
-#: addon\globalPlugins\num2word.py:47
-msgid "October"
-msgstr "Ekim"
-
-#: addon\globalPlugins\num2word.py:48
-msgid "November"
-msgstr "Kasım"
-
-#: addon\globalPlugins\num2word.py:49
-msgid "December"
-msgstr "Aralık"
-
-#. Translators: Message when the date is not valid.
-#: addon\globalPlugins\num2word.py:83
-msgid "invalid date format"
-msgstr "Bu geçerli bir saat biçimi değil"
-
-#. Translators: Message when it is an invalid hour. I mean, out of range to 23:59:59
-#: addon\globalPlugins\num2word.py:94
-msgid "Invalid hour!"
-msgstr ""
-
-#. Translators: Conversion message if is an one hour.
-#: addon\globalPlugins\num2word.py:97
-msgid "one hour"
-msgstr "bir saat"
-
-#. Translators: Conversion message if is an one minute.
-#: addon\globalPlugins\num2word.py:105
-msgid "one minute"
-msgstr "bir dakika"
-
-#. Translators: Conversion message if is an one second.
-#: addon\globalPlugins\num2word.py:113
-msgid "one second"
-msgstr "bir saniye"
-
-#. Translators: Error message when the number is too big.
-#: addon\globalPlugins\num2word.py:131
-msgid "The number is too big! twenty seven numbers maximum"
-msgstr "Sayı çok büyük! maksimum yirmi yedi sayı"
-
-#. Translators: Error message if the language is not supported by num2words.
-#: addon\globalPlugins\num2word.py:147
-msgid ""
-"The language set in the speech synthesis is not supported by the num2words "
-"library. If you want to suggest or add this language, you can do it through "
-"the library repository: https://github.com/savoirfairelinux/num2words"
-msgstr ""
-"Konuşma sentezleyicisinde ayarlanan dil, num2words kitaplığı tarafından "
-"desteklenmiyor. Bu dili önermek veya eklemek isterseniz, bunu kütüphane "
-"deposu aracılığıyla yapabilirsiniz: https://github.com/savoirfairelinux/"
-"num2words"
-
-#. Translators: Title of the error message.
-#: addon\globalPlugins\num2word.py:149 addon\globalPlugins\num2word.py:330
-msgid "Error"
-msgstr "Hata"
-
-#. Translators: Name of the conversion dialog.
-#: addon\globalPlugins\num2word.py:210
-msgid "Convert number to words"
-msgstr "Sayıyı kelimelere dönüştür"
-
-#. Translators: message to inform the user that there is no type of currency to convert with this language.
-#: addon\globalPlugins\num2word.py:222
-msgid "There are no currencies to convert for this language. Using default."
-msgstr ""
-
-#. Translators: Label for the input box for the conversion.
-#: addon\globalPlugins\num2word.py:229
-msgid "Write something here, example: 3 free throws"
-msgstr "Buraya bir şeyler yazın, örnek: 3 serbest sayı"
-
-#. Translators: Label for the conversion button.
-#: addon\globalPlugins\num2word.py:236
-msgid "Convert"
-msgstr "Dönüştür"
-
-#. Translators: Label for the button to cancel the conversion.
-#: addon\globalPlugins\num2word.py:241
-msgid "Cancel"
-msgstr "İptal"
-
-#. Translators: label for the checkbox to convert to ordinals.
-#: addon\globalPlugins\num2word.py:246
-msgid "Ordinal mode"
-msgstr "sıralı mod"
-
-#. Translators: label for the combo box to choose the conversion mode.
-#: addon\globalPlugins\num2word.py:251
-msgid "Choose conversion &mode:"
-msgstr "Dönüştürme modunu seçin:"
-
-#: addon\globalPlugins\num2word.py:257
-msgid "None"
-msgstr "Hiçbiri"
-
-#: addon\globalPlugins\num2word.py:258
-msgid "cardinal"
-msgstr "asal"
-
-#: addon\globalPlugins\num2word.py:259
-msgid "Ordinal"
-msgstr "Sıralı"
-
-#: addon\globalPlugins\num2word.py:260
-msgid "Ordinal number"
-msgstr "Sıralı sayılar"
-
-#: addon\globalPlugins\num2word.py:261
-msgid "Date"
-msgstr "Tarih"
-
-#: addon\globalPlugins\num2word.py:262
-msgid "Hour"
-msgstr "Saat"
-
-#: addon\globalPlugins\num2word.py:263
-msgid "Year"
-msgstr "Yıl"
-
-#: addon\globalPlugins\num2word.py:264
-msgid "Currency"
-msgstr "Para birimi"
-
-#. Translators: label for the currency selection combo box.
-#: addon\globalPlugins\num2word.py:270
-msgid "Select the currency to convert:"
-msgstr ""
-
-#. Translators: Error message when there is nothing to convert.
-#: addon\globalPlugins\num2word.py:328
-msgid "there's nothing to convert"
-msgstr "dönüştürülecek bir şey bulunamadı"
-
-#. Translators: Title of the error message.
-#: addon\globalPlugins\num2word.py:364 addon\globalPlugins\num2word.py:382
-#: addon\globalPlugins\num2word.py:390
-msgid "Conversion error"
-msgstr "Dönüşüm hatası"
-
-#. Translators: Error message when a valid time is not given.
-#: addon\globalPlugins\num2word.py:388
-msgid "This is not a valid hour format"
-msgstr "Bu geçerli bir saat biçimi değil"
-
-#. Translators: title of the conversion results dialog.
-#: addon\globalPlugins\num2word.py:405
-msgid "Conversion results"
-msgstr "Dönüştürme sonuçları"
-
-#. Translators: Add-on category name.
-#: addon\globalPlugins\num2word.py:420
-msgid "Number to words"
-msgstr "Sayıdan kelimelere Dönüştürücü"
-
-#. Translators: Description of the conversion of numbers to words in real time mode for input help.
-#: addon\globalPlugins\num2word.py:441
-msgid "Switch reading from numbers to words."
-msgstr "Sayılardan kelimelere alternatif okuma."
-
-#. Translators: message announced when realtime mode is enabled.
-#: addon\globalPlugins\num2word.py:449
-msgid "Num2words enabled."
-msgstr "Sayıdan kelimelere dönüştürücü etkinleştirildi."
-
-#. Translators: message announced when realtime mode is disabled.
-#: addon\globalPlugins\num2word.py:453
-msgid "Num2words disabled."
-msgstr "Sayıdan kelimelere dönüştürücü devre dışı."
-
-#. Translators: Description of the manual conversion dialog for input help.
-#: addon\globalPlugins\num2word.py:458
-msgid "Opens a dialog to convert number to words manually"
-msgstr "Sayıyı el ile kelimelere dönüştürmek için bir iletişim kutusu açar"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
@@ -246,3 +33,137 @@ msgid ""
 "languages"
 msgstr ""
 "Birçok dili destekleyen NVDA için num2Word python kitaplığının uygulanması"
+
+#~ msgid "January"
+#~ msgstr "Ocak"
+
+#~ msgid "February"
+#~ msgstr "Şubat"
+
+#~ msgid "March"
+#~ msgstr "Mart"
+
+#~ msgid "Appril"
+#~ msgstr "Nisan"
+
+#~ msgid "May"
+#~ msgstr "Mayıs"
+
+#~ msgid "June"
+#~ msgstr "Haziran"
+
+#~ msgid "July"
+#~ msgstr "Temmuz"
+
+#~ msgid "August"
+#~ msgstr "Ağustos"
+
+#~ msgid "September"
+#~ msgstr "Eylül"
+
+#~ msgid "October"
+#~ msgstr "Ekim"
+
+#~ msgid "November"
+#~ msgstr "Kasım"
+
+#~ msgid "December"
+#~ msgstr "Aralık"
+
+#~ msgid "invalid date format"
+#~ msgstr "Bu geçerli bir saat biçimi değil"
+
+#~ msgid "one hour"
+#~ msgstr "bir saat"
+
+#~ msgid "one minute"
+#~ msgstr "bir dakika"
+
+#~ msgid "one second"
+#~ msgstr "bir saniye"
+
+#~ msgid "The number is too big! twenty seven numbers maximum"
+#~ msgstr "Sayı çok büyük! maksimum yirmi yedi sayı"
+
+#~ msgid ""
+#~ "The language set in the speech synthesis is not supported by the "
+#~ "num2words library. If you want to suggest or add this language, you can "
+#~ "do it through the library repository: https://github.com/savoirfairelinux/"
+#~ "num2words"
+#~ msgstr ""
+#~ "Konuşma sentezleyicisinde ayarlanan dil, num2words kitaplığı tarafından "
+#~ "desteklenmiyor. Bu dili önermek veya eklemek isterseniz, bunu kütüphane "
+#~ "deposu aracılığıyla yapabilirsiniz: https://github.com/savoirfairelinux/"
+#~ "num2words"
+
+#~ msgid "Error"
+#~ msgstr "Hata"
+
+#~ msgid "Convert number to words"
+#~ msgstr "Sayıyı kelimelere dönüştür"
+
+#~ msgid "Write something here, example: 3 free throws"
+#~ msgstr "Buraya bir şeyler yazın, örnek: 3 serbest sayı"
+
+#~ msgid "Convert"
+#~ msgstr "Dönüştür"
+
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
+#~ msgid "Ordinal mode"
+#~ msgstr "sıralı mod"
+
+#~ msgid "Choose conversion &mode:"
+#~ msgstr "Dönüştürme modunu seçin:"
+
+#~ msgid "None"
+#~ msgstr "Hiçbiri"
+
+#~ msgid "cardinal"
+#~ msgstr "asal"
+
+#~ msgid "Ordinal"
+#~ msgstr "Sıralı"
+
+#~ msgid "Ordinal number"
+#~ msgstr "Sıralı sayılar"
+
+#~ msgid "Date"
+#~ msgstr "Tarih"
+
+#~ msgid "Hour"
+#~ msgstr "Saat"
+
+#~ msgid "Year"
+#~ msgstr "Yıl"
+
+#~ msgid "Currency"
+#~ msgstr "Para birimi"
+
+#~ msgid "there's nothing to convert"
+#~ msgstr "dönüştürülecek bir şey bulunamadı"
+
+#~ msgid "Conversion error"
+#~ msgstr "Dönüşüm hatası"
+
+#~ msgid "This is not a valid hour format"
+#~ msgstr "Bu geçerli bir saat biçimi değil"
+
+#~ msgid "Conversion results"
+#~ msgstr "Dönüştürme sonuçları"
+
+#~ msgid "Number to words"
+#~ msgstr "Sayıdan kelimelere Dönüştürücü"
+
+#~ msgid "Switch reading from numbers to words."
+#~ msgstr "Sayılardan kelimelere alternatif okuma."
+
+#~ msgid "Num2words enabled."
+#~ msgstr "Sayıdan kelimelere dönüştürücü etkinleştirildi."
+
+#~ msgid "Num2words disabled."
+#~ msgstr "Sayıdan kelimelere dönüştürücü devre dışı."
+
+#~ msgid "Opens a dialog to convert number to words manually"
+#~ msgstr "Sayıyı el ile kelimelere dönüştürmek için bir iletişim kutusu açar"

@@ -63,7 +63,7 @@ i18nSources = pythonSources + ["buildVars.py"]
 
 # Files that will be ignored when building the nvda-addon file
 # Paths are relative to the addon directory, not to the root directory of your addon sources.
-excludedFiles = ["globalPlugins\\num2words\\tests\\*.py"]
+excludedFiles = ["addon\globalPlugins\num2words\tests\*.py"]
 
 # Base language for the NVDA add-on
 # If your add-on is written in a language other than english, modify this variable.

@@ -22,8 +22,13 @@ import os
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'num2words'))
 import num2words
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'tools'))
+from tools.datetime2words import convert_date, convert_hour
 import re
 import gui, wx
+from gui import guiHelper, settingsDialogs
+# for future.
+from gui.settingsDialogs import SettingsPanel
 # default params:
 speak_orig = None # speak object if num2words is disabled.
 realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking.
@@ -32,6 +37,11 @@ language = "en"
 if not "scratchpad" in num2words.__file__.split("\\"):
 	addonHandler.initTranslation()
 
+# Set default Add-On settings:
+confspec = {
+	"enableOnStartup": "boolean(default=False)"
+}
+config.conf.spec["num2words"] = confspec
 
 # Translators: The twelve months of the year for date conversion.
 months = [
@@ -48,78 +58,6 @@ months = [
 	[11, _("November")],
 	[12, _("December")]
 ]
-
-# todo: separate the following into a different file, as if it were a new module to include.
-
-def convert_date(date, format, language="en"):
-	"""
-	We have two formats:
-	1: dd/mm/yyyy
-	2: mm/dd/yyyy
-	"""
-	parts = date.split('/')
-	if len(parts) == 3:
-		day = parts[0]
-		mont = int(parts[1])
-		year = parts[2]
-		if format == 1:
-			if language == "en":
-				return f"{day} {months[mont-1][1]} {year}"
-			elif language == "es":
-				return f"{day} de {months[mont-1][1]} de {year}"
-		elif format == 2:
-			return f"{months[mont-1][1]} {day}, {year}"
-	elif len(parts) == 2:
-		day = parts[0]
-		mont = int(parts[1])
-		if format == 1:
-			if language == "en":
-				return f"{day} {months[mont-1][1]}"
-			elif language == "es":
-				return f"{day} de {months[mont-1][1]}"
-		elif format == 2:
-			return f"{months[mont-1][1]} {day}"
-	# Translators: Message when the date is not valid.
-	raise Exception(_("invalid date format"))
-
-def convert_hour(hour):
-	hours = int(hour.split(':')[0])
-	minutes = int(hour.split(':')[1])
-	seconds = 00
-	if hour.count(':') == 2:
-		seconds = int(hour.split(':')[2])
-	# checks:
-	if hours > 23 or minutes > 59 or seconds > 59:
-		# Translators: Message when it is an invalid hour. I mean, out of range to 23:59:59
-		raise Exception(_("Invalid hour!"))
-	if hours == 1:
-		# Translators: Conversion message if is an one hour.
-		hour_str = _("one hour")
-	else:
-		# Translators: Conversion message if is several hours.
-		hour_str = f'{hours} {_("hours")}'
-	if minutes == 0:
-		min_str = ''
-	elif minutes == 1:
-		# Translators: Conversion message if is an one minute.
-		min_str = _("one minute")
-	else:
-		# Translators: Conversion message if is several minutes.
-		min_str = f'{minutes} {_("minutes")}'
-	if seconds == 0:
-		sec_str = ''
-	elif seconds == 1:
-		# Translators: Conversion message if is an one second.
-		sec_str = _("one second")
-	else:
-		# Translators: Conversion message if is several seconds.
-		sec_str = f'{seconds} {_("seconds")}'
-	if min_str == '' and sec_str == '':
-		return f'{hour_str} {_("oclock")}'
-	elif hour.count(':') == 1:
-		return f'{hour_str} {_("and")} {min_str}'
-	else:
-		return f'{hour_str}, {min_str} {_("and")} {sec_str}'
 
 def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, currency="EUR", **kwargs):
 	match = re.findall(r'[\d./]+', utterance)
@@ -201,6 +139,16 @@ def speak_mod(speechSequence: SpeechSequence,
 		if autoLanguageSwitching and isinstance(item,LangChangeCommand):
 			curLanguage=item.lang
 	speak_orig(speechSequence = converted_speechSequence, priority = priority)
+
+class num2words_Settings(SettingsPanel):
+	title = _("number to words")
+	def makeSettings(self, settingsSizer):
+		sHelper = guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+		self.enableOnStartup = sHelper.addItem(wx.CheckBox(self, label=_("Enable the numbers to words conversion in real time on startup")))
+		self.enableOnStartup.SetValue(config.conf["num2words"]["enableOnStartup"])
+
+	def onSave(self):
+		config.conf["num2words"]["enableOnStartup"] = self.enableOnStartup.GetValue()
 
 class ConversionDialog(wx.Dialog):
 	def __init__(self, parent):
@@ -419,7 +367,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	# Translators: Add-on category name.
 	scriptCategory = _("Number to words")
 	def __init__(self):
-		super().__init__()
+		super(globalPluginHandler.GlobalPlugin, self).__init__()
+		global realtime
+		settingsDialogs.NVDASettingsDialog.categoryClasses.append(num2words_Settings)
 		# detect if language is supported:
 		if check_language(getCurrentLanguage()) == False:
 			wx.CallLater(500, _lang_not_supported_MSG)
@@ -430,6 +380,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			speak_orig = speech._manager.speak
 			# replace the original speak object to the modified speak_mod func:
 			speech._manager.speak = speak_mod
+		# If the config to enhable num2words on startup is enhabled...
+		if config.conf["num2words"]["enableOnStartup"]:
+			realtime = True
+
+	def terminate(self):
+		super(GlobalPlugin, self).terminate()
+		global realtime
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(num2words_Settings)
+		if realtime:
+			realtime = False
 
 	# GUI for conversion:
 	def onConvert(self, evt):

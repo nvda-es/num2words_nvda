@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: num2words 0.4\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2023-10-16 15:34-0500\n"
+"POT-Creation-Date: 2023-10-19 10:41-0500\n"
 "PO-Revision-Date: 2023-10-16 15:40-0500\n"
 "Last-Translator: Mateo Cedillo <angelitomateocedillo@gmail.com>\n"
 "Language-Team: \n"
@@ -17,221 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
-
-#: addon\globalPlugins\num2word.py:38
-msgid "January"
-msgstr "Enero"
-
-#: addon\globalPlugins\num2word.py:39
-msgid "February"
-msgstr "Febrero"
-
-#: addon\globalPlugins\num2word.py:40
-msgid "March"
-msgstr "Marzo"
-
-#: addon\globalPlugins\num2word.py:41
-msgid "Appril"
-msgstr "Abril"
-
-#: addon\globalPlugins\num2word.py:42
-msgid "May"
-msgstr "Mayo"
-
-#: addon\globalPlugins\num2word.py:43
-msgid "June"
-msgstr "Junio"
-
-#: addon\globalPlugins\num2word.py:44
-msgid "July"
-msgstr "Julio"
-
-#: addon\globalPlugins\num2word.py:45
-msgid "August"
-msgstr "Agosto"
-
-#: addon\globalPlugins\num2word.py:46
-msgid "September"
-msgstr "Septiembre"
-
-#: addon\globalPlugins\num2word.py:47
-msgid "October"
-msgstr "Octubre"
-
-#: addon\globalPlugins\num2word.py:48
-msgid "November"
-msgstr "Noviembre"
-
-#: addon\globalPlugins\num2word.py:49
-msgid "December"
-msgstr "Diciembre"
-
-#. Translators: Message when the date is not valid.
-#: addon\globalPlugins\num2word.py:83
-msgid "invalid date format"
-msgstr "Este no es un formato de hora válido"
-
-#. Translators: Message when it is an invalid hour. I mean, out of range to 23:59:59
-#: addon\globalPlugins\num2word.py:94
-msgid "Invalid hour!"
-msgstr "¡Hora inválida!"
-
-#. Translators: Conversion message if is an one hour.
-#: addon\globalPlugins\num2word.py:97
-msgid "one hour"
-msgstr "una hora"
-
-#. Translators: Conversion message if is an one minute.
-#: addon\globalPlugins\num2word.py:105
-msgid "one minute"
-msgstr "un minuto"
-
-#. Translators: Conversion message if is an one second.
-#: addon\globalPlugins\num2word.py:113
-msgid "one second"
-msgstr "un segundo"
-
-#. Translators: Error message when the number is too big.
-#: addon\globalPlugins\num2word.py:131
-msgid "The number is too big! twenty seven numbers maximum"
-msgstr "¡El número es demasiado grande! veintisiete números como máximo"
-
-#. Translators: Error message if the language is not supported by num2words.
-#: addon\globalPlugins\num2word.py:147
-msgid ""
-"The language set in the speech synthesis is not supported by the num2words "
-"library. If you want to suggest or add this language, you can do it through "
-"the library repository: https://github.com/savoirfairelinux/num2words"
-msgstr ""
-"El idioma establecido de la síntesis de voz no está soportado por la "
-"librería num2words. Si deseas sugerir o agregar este nuevo idioma, puedes "
-"hacerlo a través del repositorio de la librería num2words: https://github."
-"com/savoirfairelinux/num2words"
-
-#. Translators: Title of the error message.
-#: addon\globalPlugins\num2word.py:149 addon\globalPlugins\num2word.py:330
-msgid "Error"
-msgstr "Error"
-
-#. Translators: Name of the conversion dialog.
-#: addon\globalPlugins\num2word.py:210
-msgid "Convert number to words"
-msgstr "Convertir número a palabras"
-
-#. Translators: message to inform the user that there is no type of currency to convert with this language.
-#: addon\globalPlugins\num2word.py:222
-msgid "There are no currencies to convert for this language. Using default."
-msgstr "No hay monedas a convertir para este idioma. Usando el predeterminado."
-
-#. Translators: Label for the input box for the conversion.
-#: addon\globalPlugins\num2word.py:229
-msgid "Write something here, example: 3 free throws"
-msgstr "Escribe algo aquí, por ejemplo: 3 tiros libres"
-
-#. Translators: Label for the conversion button.
-#: addon\globalPlugins\num2word.py:236
-msgid "Convert"
-msgstr "Convertir"
-
-#. Translators: Label for the button to cancel the conversion.
-#: addon\globalPlugins\num2word.py:241
-msgid "Cancel"
-msgstr "Cancelar"
-
-#. Translators: label for the checkbox to convert to ordinals.
-#: addon\globalPlugins\num2word.py:246
-msgid "Ordinal mode"
-msgstr "Modo ordinal"
-
-#. Translators: label for the combo box to choose the conversion mode.
-#: addon\globalPlugins\num2word.py:251
-msgid "Choose conversion &mode:"
-msgstr "Selecciona el &modo de conversión:"
-
-#: addon\globalPlugins\num2word.py:257
-msgid "None"
-msgstr "Ninguno"
-
-#: addon\globalPlugins\num2word.py:258
-msgid "cardinal"
-msgstr "cardenal"
-
-#: addon\globalPlugins\num2word.py:259
-msgid "Ordinal"
-msgstr "Ordinal"
-
-#: addon\globalPlugins\num2word.py:260
-msgid "Ordinal number"
-msgstr "Número ordinal"
-
-#: addon\globalPlugins\num2word.py:261
-msgid "Date"
-msgstr "FECHA"
-
-#: addon\globalPlugins\num2word.py:262
-msgid "Hour"
-msgstr "Hora"
-
-#: addon\globalPlugins\num2word.py:263
-msgid "Year"
-msgstr "Año"
-
-#: addon\globalPlugins\num2word.py:264
-msgid "Currency"
-msgstr "Moneda"
-
-#. Translators: label for the currency selection combo box.
-#: addon\globalPlugins\num2word.py:270
-msgid "Select the currency to convert:"
-msgstr "Selecciona la moneda a convertir:"
-
-#. Translators: Error message when there is nothing to convert.
-#: addon\globalPlugins\num2word.py:328
-#, fuzzy
-msgid "there's nothing to convert"
-msgstr "No hay nada que convertir"
-
-#. Translators: Title of the error message.
-#: addon\globalPlugins\num2word.py:364 addon\globalPlugins\num2word.py:382
-#: addon\globalPlugins\num2word.py:390
-msgid "Conversion error"
-msgstr "Error de conversión"
-
-#. Translators: Error message when a valid time is not given.
-#: addon\globalPlugins\num2word.py:388
-msgid "This is not a valid hour format"
-msgstr "Este no es un formato de hora válido"
-
-#. Translators: title of the conversion results dialog.
-#: addon\globalPlugins\num2word.py:405
-msgid "Conversion results"
-msgstr "Resultados de conversión"
-
-#. Translators: Add-on category name.
-#: addon\globalPlugins\num2word.py:420
-msgid "Number to words"
-msgstr "Número a palabras"
-
-#. Translators: Description of the conversion of numbers to words in real time mode for input help.
-#: addon\globalPlugins\num2word.py:441
-msgid "Switch reading from numbers to words."
-msgstr "Alternar la lectura de números a palabras."
-
-#. Translators: message announced when realtime mode is enabled.
-#: addon\globalPlugins\num2word.py:449
-#, fuzzy
-msgid "Num2words enabled."
-msgstr "Números a palabras activado."
-
-#. Translators: message announced when realtime mode is disabled.
-#: addon\globalPlugins\num2word.py:453
-msgid "Num2words disabled."
-msgstr "Números a palabras desactivado."
-
-#. Translators: Description of the manual conversion dialog for input help.
-#: addon\globalPlugins\num2word.py:458
-msgid "Opens a dialog to convert number to words manually"
-msgstr "Abre un diálogo para convertir números a palabras de forma manual"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
@@ -249,3 +34,149 @@ msgid ""
 msgstr ""
 "Implementación de la librería de Python num2words para NVDA que soporta "
 "muchos idiomas"
+
+#~ msgid "January"
+#~ msgstr "Enero"
+
+#~ msgid "February"
+#~ msgstr "Febrero"
+
+#~ msgid "March"
+#~ msgstr "Marzo"
+
+#~ msgid "Appril"
+#~ msgstr "Abril"
+
+#~ msgid "May"
+#~ msgstr "Mayo"
+
+#~ msgid "June"
+#~ msgstr "Junio"
+
+#~ msgid "July"
+#~ msgstr "Julio"
+
+#~ msgid "August"
+#~ msgstr "Agosto"
+
+#~ msgid "September"
+#~ msgstr "Septiembre"
+
+#~ msgid "October"
+#~ msgstr "Octubre"
+
+#~ msgid "November"
+#~ msgstr "Noviembre"
+
+#~ msgid "December"
+#~ msgstr "Diciembre"
+
+#~ msgid "invalid date format"
+#~ msgstr "Este no es un formato de hora válido"
+
+#~ msgid "Invalid hour!"
+#~ msgstr "¡Hora inválida!"
+
+#~ msgid "one hour"
+#~ msgstr "una hora"
+
+#~ msgid "one minute"
+#~ msgstr "un minuto"
+
+#~ msgid "one second"
+#~ msgstr "un segundo"
+
+#~ msgid "The number is too big! twenty seven numbers maximum"
+#~ msgstr "¡El número es demasiado grande! veintisiete números como máximo"
+
+#~ msgid ""
+#~ "The language set in the speech synthesis is not supported by the "
+#~ "num2words library. If you want to suggest or add this language, you can "
+#~ "do it through the library repository: https://github.com/savoirfairelinux/"
+#~ "num2words"
+#~ msgstr ""
+#~ "El idioma establecido de la síntesis de voz no está soportado por la "
+#~ "librería num2words. Si deseas sugerir o agregar este nuevo idioma, puedes "
+#~ "hacerlo a través del repositorio de la librería num2words: https://github."
+#~ "com/savoirfairelinux/num2words"
+
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#~ msgid "Convert number to words"
+#~ msgstr "Convertir número a palabras"
+
+#~ msgid "There are no currencies to convert for this language. Using default."
+#~ msgstr ""
+#~ "No hay monedas a convertir para este idioma. Usando el predeterminado."
+
+#~ msgid "Write something here, example: 3 free throws"
+#~ msgstr "Escribe algo aquí, por ejemplo: 3 tiros libres"
+
+#~ msgid "Convert"
+#~ msgstr "Convertir"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Ordinal mode"
+#~ msgstr "Modo ordinal"
+
+#~ msgid "Choose conversion &mode:"
+#~ msgstr "Selecciona el &modo de conversión:"
+
+#~ msgid "None"
+#~ msgstr "Ninguno"
+
+#~ msgid "cardinal"
+#~ msgstr "cardenal"
+
+#~ msgid "Ordinal"
+#~ msgstr "Ordinal"
+
+#~ msgid "Ordinal number"
+#~ msgstr "Número ordinal"
+
+#~ msgid "Date"
+#~ msgstr "FECHA"
+
+#~ msgid "Hour"
+#~ msgstr "Hora"
+
+#~ msgid "Year"
+#~ msgstr "Año"
+
+#~ msgid "Currency"
+#~ msgstr "Moneda"
+
+#~ msgid "Select the currency to convert:"
+#~ msgstr "Selecciona la moneda a convertir:"
+
+#, fuzzy
+#~ msgid "there's nothing to convert"
+#~ msgstr "No hay nada que convertir"
+
+#~ msgid "Conversion error"
+#~ msgstr "Error de conversión"
+
+#~ msgid "This is not a valid hour format"
+#~ msgstr "Este no es un formato de hora válido"
+
+#~ msgid "Conversion results"
+#~ msgstr "Resultados de conversión"
+
+#~ msgid "Number to words"
+#~ msgstr "Número a palabras"
+
+#~ msgid "Switch reading from numbers to words."
+#~ msgstr "Alternar la lectura de números a palabras."
+
+#, fuzzy
+#~ msgid "Num2words enabled."
+#~ msgstr "Números a palabras activado."
+
+#~ msgid "Num2words disabled."
+#~ msgstr "Números a palabras desactivado."
+
+#~ msgid "Opens a dialog to convert number to words manually"
+#~ msgstr "Abre un diálogo para convertir números a palabras de forma manual"
