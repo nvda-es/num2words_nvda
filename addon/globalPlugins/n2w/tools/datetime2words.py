@@ -1,7 +1,24 @@
 # date and time conversion.
 # By: Mateo C.
-import addonHandler
-addonHandler.initTranslation()
+#import addonHandler
+#addonHandler.initTranslation()
+
+# Translators: The twelve months of the year for date conversion.
+months = [
+	[1, _("January")],
+	[2, _("February")],
+	[3, _("March")],
+	[4, _("Appril")],
+	[5, _("May")],
+	[6, _("June")],
+	[7, _("July")],
+	[8, _("August")],
+	[9, _("September")],
+	[10, _("October")],
+	[11, _("November")],
+	[12, _("December")]
+]
+
 
 def convert_date(date, format, language="en"):
 	"""

@@ -22,8 +22,7 @@ import os
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'num2words'))
 import num2words
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'tools'))
-from tools.datetime2words import convert_date, convert_hour
+from .tools.datetime2words import convert_date, convert_hour
 import re
 import gui, wx
 from gui import guiHelper, settingsDialogs
@@ -42,22 +41,6 @@ confspec = {
 	"enableOnStartup": "boolean(default=False)"
 }
 config.conf.spec["num2words"] = confspec
-
-# Translators: The twelve months of the year for date conversion.
-months = [
-	[1, _("January")],
-	[2, _("February")],
-	[3, _("March")],
-	[4, _("Appril")],
-	[5, _("May")],
-	[6, _("June")],
-	[7, _("July")],
-	[8, _("August")],
-	[9, _("September")],
-	[10, _("October")],
-	[11, _("November")],
-	[12, _("December")]
-]
 
 def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, currency="EUR", **kwargs):
 	match = re.findall(r'[\d./]+', utterance)
