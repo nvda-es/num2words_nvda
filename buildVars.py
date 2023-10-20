@@ -56,14 +56,13 @@ addon_info = {
 # pythonSources = ["addon/globalPlugins/*.py"]
 # For more information on SCons Glob expressions please take a look at:
 # https://scons.org/doc/production/HTML/scons-user/apd.html
-pythonSources = ["addon/globalPlugins/n2w/__init__.py", "addon/globalPlugins/n2w/tools/*.py", "addon/globalPlugins/n2w/num2words/*.py"]
-
+pythonSources = ["addon/globalPlugins/n2w/*.py", "addon/globalPlugins/n2w/tools/*.py"]
 # Files that contain strings for translation. Usually your python sources
 i18nSources = pythonSources + ["buildVars.py"]
 
 # Files that will be ignored when building the nvda-addon file
 # Paths are relative to the addon directory, not to the root directory of your addon sources.
-excludedFiles = ["addon\globalPlugins\num2words\tests\*.py"]
+excludedFiles = ["globalPlugins\n2w\num2words\tests\test_*.py"]
 
 # Base language for the NVDA add-on
 # If your add-on is written in a language other than english, modify this variable.

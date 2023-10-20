@@ -33,6 +33,8 @@ La siguiente comparación ha sido evaluada utilizando el [controlador IBMTTS](ht
 Este complemento tiene dos formas de usar números a palabras que se detallan a continuación:
 
 * Modo en tiempo real: mientras NVDA hable y exista texto que contenga números dentro de él, la conversión mostrará su resultado y este se transmitirá por voz. Esto, por supuesto, se aplica en cualquier sintetizador de voz que uses.
+	* Puedes usar esta característica de forma temporal agregando un gesto de entrada (ver más abajo). Siendo una característica temporal, se desactivará cuando sales de NVDA.
+	* También puedes configurar esta característica para que se ponga en marcha cuando se inicie NVDA. Para hacer esto, pulsa NVDA+N, ve a `preferencias>opciones...` y selecciona la categoría número a palabras. Dentro de esta, encontrarás la casilla correspondiente.
 * Modo manual: puedes escribir números, texto y/o números a la vez, interactuando mediante un cuadro de diálogo que te permitirá hacerlo. La ventana de diálogo tiene:
 	* Una casilla de verificación para convertir a ordinal.
 	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay cinco modos de conversión y son los siguientes:
@@ -60,6 +62,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 * La librería num2words puede convertir hasta 27 números seguidos. Si el texto tiene más de 27 números, lo sabrás con un pitido y un mensaje de voz indicándotelo.
 * Actualmente, la verbalización de un número convertido con el cursor no está implementada y, como consecuencia, se deletreará el número convertido.
 * El soporte de conversión de números decimales a palabras se está intentando implementar, ya que hay conflictos con algunas librerías natibas de Python instaladas en NVDA.
+	* These conflicts are resolved in NVDA's most recent alphas. We hope that the add-on can work better when a stable version of NVDA is released.
 
 ## Compilar este complemento:
 
@@ -91,10 +94,12 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 * Actualizado num2words a 0.5.13, commit `305242f`
 	* Agrega soporte para bielorruso y eslovaco.
 	* Actualizaciones y refactorizaciones de código para el ruso y ucraniano.
-* Arreglado: Ahora la traducción del complemento debería activarse, incluso si la opción scratchpad está activada en el panel de opciones. Gracias, `Dalen`.
+* El complemento ya no revisa si la opción scratchpad en el `panel de opciones > avanzado` está activada.
 * Arreglado: error `string index out of range` al navegar por sitios web. Gracias, `Volodymyr`.
 * Arreglado: La conversión en tiempo real y los separadores de voz de NVDA. El complemento ahora debería separar las palabras convertidas correctamente.
 * Arreglado: compatibilidad con NVDA 2024.1.
+* Arreglado: manejo inadecuado de la traducción en la conversión por hora. Los mantenedores de idiomas deberán actualizar las nuevas entradas para que la característica funcione correctamente.
+* Ordenado el código para una mejor legibilidad.
 
 ## 0.3
 

@@ -25,12 +25,11 @@ import num2words
 from .tools.datetime2words import convert_date, convert_hour
 import re
 import gui, wx
-from gui import guiHelper, settingsDialogs
-# for future.
-from gui.settingsDialogs import SettingsPanel
+from gui import settingsDialogs
+from .options import num2words_Settings
 # default params:
 speak_orig = None # speak object if num2words is disabled.
-realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking.
+realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking. This can be configured using the gesture set or the num2words settings panel.
 language = "en"
 
 addonHandler.initTranslation()
@@ -121,16 +120,6 @@ def speak_mod(speechSequence: SpeechSequence,
 		if autoLanguageSwitching and isinstance(item,LangChangeCommand):
 			curLanguage=item.lang
 	speak_orig(speechSequence = converted_speechSequence, priority = priority)
-
-class num2words_Settings(SettingsPanel):
-	title = _("number to words")
-	def makeSettings(self, settingsSizer):
-		sHelper = guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
-		self.enableOnStartup = sHelper.addItem(wx.CheckBox(self, label=_("Enable the numbers to words conversion in real time on startup")))
-		self.enableOnStartup.SetValue(config.conf["num2words"]["enableOnStartup"])
-
-	def onSave(self):
-		config.conf["num2words"]["enableOnStartup"] = self.enableOnStartup.GetValue()
 
 class ConversionDialog(wx.Dialog):
 	def __init__(self, parent):
@@ -351,6 +340,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
 		global realtime
+		# Add num2words category to the NVDA settings panel.
 		settingsDialogs.NVDASettingsDialog.categoryClasses.append(num2words_Settings)
 		# detect if language is supported:
 		if check_language(getCurrentLanguage()) == False:

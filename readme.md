@@ -33,6 +33,8 @@ The following comparison has been evaluated using the [IBMTTS driver](https://gi
 This addon has two ways of using numbers to words:
 
 * Real time mode: as long as NVDA is talking and there's a text containing numbers anywhere in it, the conversion will display its result and be transmitted by speech. This applies to any speech synthesizer you use.
+	* You can use this feature temporarily by adding an input gesture (see below). As this is a temporary feature, it will be disabled when you exit NVDA.
+	* You can also configure this feature to start when NVDA starts. To do this, just press NVDA+N, go to `preferences>settings...` and select the number to words category. There you will find the corresponding checkbox.
 * Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
 	* A checkbox to convert to ordinal.
 	* If the ordinal box is not checked, a combo box will appear to choose the conversion mode. There are five conversion modes and they are as follows:
@@ -42,7 +44,7 @@ This addon has two ways of using numbers to words:
 		* Hour, for example: 12:30:15 = It's twelve hours, thirty minutes and fifteen seconds.
 		* Year, for example: 1980 =  nineteen eighty (has no effect in many languages).
 		* Currency, for example: 2.15 = two euro, fifteen cents.
-			* once you select this option, a new combo box will appear to choose the currency. Each language has different currencies apart from the euro, and the list can vary.
+			* Once you select this option, a new combo box will appear to choose the currency. Each language has different currencies apart from the eur, and the list can vary.
 	* An input box to write your entry.
 	* A convert button. By pressing this button, you will be shown a message box with the final result.
 	* A cancel button: Exits the conversion dialog.
@@ -60,6 +62,7 @@ This addon has two ways of using numbers to words:
 * The num2words library can convert up to 27 consecutive numbers. If the text is longer than 27 numbers, it will let you know with a beep and a speech message.
 * Currently, speaking a converted number with the cursor isn't implemented and as a consequence will spell out the converted number.
 * Decimal numbers to words conversion support is being implemented, as there are conflicts with some native Python libraries installed in NVDA.
+	* These conflicts are resolved in NVDA's most recent alphas. We hope that the add-on can work better when a stable version of NVDA is released.
 
 ## Compile this add-on:
 
@@ -91,10 +94,12 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 * Updated num2words to 0.5.13
 	* Adds support for Belarusian and Slovak.
 	* Updates and code refactorings for Rusian and Ukrainian.
-* Fixed: Now the add-on translation should be enabled even if the scratchpad option is enabled in the settings pannel. Thanks, `Dalen`.
+* The add-on doesn't check anymore if scratchpad option in the `settings panel > advanced` is enabled.
 * Fixed: `string index out of range` error when browsing websites. Thanks, `Volodymyr`.
 * Fixed: Realtime conversion and NVDA speech separators. The add-on should now separate the converted words correctly.
 * Fixed: compatibility with NVDA 2024.1.
+* Fixed: improper translation handling in hour conversion. Language maintainers will need to update new entries for it to work correctly.
+* Ordered the code for better readability.
 
 ## 0.3
 

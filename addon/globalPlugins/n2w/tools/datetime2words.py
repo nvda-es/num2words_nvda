@@ -19,7 +19,6 @@ months = [
 	[12, _("December")]
 ]
 
-
 def convert_date(date, format, language="en"):
 	"""
 	We have two formats:
@@ -66,7 +65,7 @@ def convert_hour(hour):
 		hour_str = _("one hour")
 	else:
 		# Translators: Conversion message if is several hours.
-		hour_str = f'{hours} {_("hours")}'
+		hour_str = str(hours) + " " + _("hours")
 	if minutes == 0:
 		min_str = ''
 	elif minutes == 1:
@@ -74,7 +73,7 @@ def convert_hour(hour):
 		min_str = _("one minute")
 	else:
 		# Translators: Conversion message if is several minutes.
-		min_str = f'{minutes} {_("minutes")}'
+		min_str = str(minutes) + " " + _("minutes")
 	if seconds == 0:
 		sec_str = ''
 	elif seconds == 1:
@@ -82,10 +81,10 @@ def convert_hour(hour):
 		sec_str = _("one second")
 	else:
 		# Translators: Conversion message if is several seconds.
-		sec_str = f'{seconds} {_("seconds")}'
+		sec_str = str(seconds) + " " + _("seconds")
 	if min_str == '' and sec_str == '':
-		return f'{hour_str} {_("oclock")}'
+		return hour_str + " " + _("oclock")
 	elif hour.count(':') == 1:
-		return f'{hour_str} {_("and")} {min_str}'
+		return hour_str + " " + _("and") + " " + min_str
 	else:
-		return f'{hour_str}, {min_str} {_("and")} {sec_str}'
+		return hour_str + ", " + min_str + " " + _("and") + " " + sec_str
