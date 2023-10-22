@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Sayıdan Kelimelere 0.4\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2023-10-20 06:23-0500\n"
-"PO-Revision-Date: 2023-07-22 23:45+0300\n"
+"PO-Revision-Date: 2023-10-20 15:47+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr_TR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #. Translators: Error message when the number is too big.
 #: addon\globalPlugins\n2w\__init__.py:50
@@ -49,7 +49,7 @@ msgstr "Sayıyı kelimelere dönüştür"
 #. Translators: message to inform the user that there is no type of currency to convert with this language.
 #: addon\globalPlugins\n2w\__init__.py:141
 msgid "There are no currencies to convert for this language. Using default."
-msgstr ""
+msgstr "Bu dil için dönüştürülecek para birimi yok. Varsayılanı kullan."
 
 #. Translators: Label for the input box for the conversion.
 #: addon\globalPlugins\n2w\__init__.py:148
@@ -69,7 +69,7 @@ msgstr "İptal"
 #. Translators: label for the checkbox to convert to ordinals.
 #: addon\globalPlugins\n2w\__init__.py:165
 msgid "Ordinal mode"
-msgstr "sıralı mod"
+msgstr "Sıralı mod"
 
 #. Translators: label for the combo box to choose the conversion mode.
 #: addon\globalPlugins\n2w\__init__.py:170
@@ -111,7 +111,7 @@ msgstr "Para birimi"
 #. Translators: label for the currency selection combo box.
 #: addon\globalPlugins\n2w\__init__.py:189
 msgid "Select the currency to convert:"
-msgstr ""
+msgstr "Dönüştürülecek para birimini seçin:"
 
 #. Translators: Error message when there is nothing to convert.
 #: addon\globalPlugins\n2w\__init__.py:247
@@ -162,11 +162,13 @@ msgstr "Sayıyı el ile kelimelere dönüştürmek için bir iletişim kutusu a�
 
 #: addon\globalPlugins\n2w\options.py:14
 msgid "number to words"
-msgstr "Sayıdan kelimelere Dönüştürücü"
+msgstr "sayıdan kelimelere Dönüştürücü"
 
 #: addon\globalPlugins\n2w\options.py:17
 msgid "Enable the numbers to words conversion in real time on startup"
 msgstr ""
+"Başlangıçta gerçek zamanlı olarak sayıların kelimelere dönüştürülmesini "
+"etkinleştir"
 
 #: addon\globalPlugins\n2w\tools\datetime2words.py:8
 msgid "January"
@@ -219,12 +221,12 @@ msgstr "Aralık"
 #. Translators: Message when the date is not valid.
 #: addon\globalPlugins\n2w\tools\datetime2words.py:52
 msgid "invalid date format"
-msgstr "Bu geçerli bir saat biçimi değil"
+msgstr "bu geçerli bir tarih biçimi değil"
 
 #. Translators: Message when it is an invalid hour. I mean, out of range to 23:59:59
 #: addon\globalPlugins\n2w\tools\datetime2words.py:63
 msgid "Invalid hour!"
-msgstr ""
+msgstr "Geçersiz saat!"
 
 #. Translators: Conversion message if is an one hour.
 #: addon\globalPlugins\n2w\tools\datetime2words.py:66
@@ -234,7 +236,7 @@ msgstr "bir saat"
 #. Translators: Conversion message if is several hours.
 #: addon\globalPlugins\n2w\tools\datetime2words.py:69
 msgid "hours"
-msgstr ""
+msgstr "saat"
 
 #. Translators: Conversion message if is an one minute.
 #: addon\globalPlugins\n2w\tools\datetime2words.py:74
@@ -244,7 +246,7 @@ msgstr "bir dakika"
 #. Translators: Conversion message if is several minutes.
 #: addon\globalPlugins\n2w\tools\datetime2words.py:77
 msgid "minutes"
-msgstr ""
+msgstr "dakika"
 
 #. Translators: Conversion message if is an one second.
 #: addon\globalPlugins\n2w\tools\datetime2words.py:82
@@ -254,16 +256,16 @@ msgstr "bir saniye"
 #. Translators: Conversion message if is several seconds.
 #: addon\globalPlugins\n2w\tools\datetime2words.py:85
 msgid "seconds"
-msgstr ""
+msgstr "saniye"
 
 #: addon\globalPlugins\n2w\tools\datetime2words.py:87
 msgid "oclock"
-msgstr ""
+msgstr "saat"
 
 #: addon\globalPlugins\n2w\tools\datetime2words.py:89
 #: addon\globalPlugins\n2w\tools\datetime2words.py:91
 msgid "and"
-msgstr ""
+msgstr "ve"
 
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on

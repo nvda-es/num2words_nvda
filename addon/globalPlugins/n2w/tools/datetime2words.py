@@ -35,8 +35,13 @@ def convert_date(date, format, language="en"):
 				return f"{day} {months[mont-1][1]} {year}"
 			elif language == "es":
 				return f"{day} de {months[mont-1][1]} de {year}"
+			elif language == "uk":
+				return f"{day} {months[mont-1][1]} {year} рік"
 		elif format == 2:
-			return f"{months[mont-1][1]} {day}, {year}"
+			if not language = "uc":
+				return f"{months[mont-1][1]} {day}, {year}"
+			else:
+				return f"{months[mont-1][1]} {day}, {year} рік"
 	elif len(parts) == 2:
 		day = parts[0]
 		mont = int(parts[1])

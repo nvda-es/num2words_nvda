@@ -37,7 +37,7 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 	* También puedes configurar esta característica para que se ponga en marcha cuando se inicie NVDA. Para hacer esto, pulsa NVDA+N, ve a `preferencias>opciones...` y selecciona la categoría número a palabras. Dentro de esta, encontrarás la casilla correspondiente.
 * Modo manual: puedes escribir números, texto y/o números a la vez, interactuando mediante un cuadro de diálogo que te permitirá hacerlo. La ventana de diálogo tiene:
 	* Una casilla de verificación para convertir a ordinal.
-	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay cinco modos de conversión y son los siguientes:
+	* Si la casilla de ordinal no está activada, aparecerá un cuadro combinado para elegir el modo de conversión. Hay seis modos de conversión y son los siguientes:
 		* Ordinales, por ejemplo: 1 = primero.
 		* Números ordinales, por ejemplo: 1 = primero (se aplica el mismo método que la opción para ordinales).
 		* Fecha, por ejemplo (en formato dd/mm/aaaa): 23/07/2023 = Veintitrés de julio de dos mil veintitrés.

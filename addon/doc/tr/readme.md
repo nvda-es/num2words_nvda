@@ -33,15 +33,18 @@ Aşağıdaki karşılaştırma, NVDA için [IBMTTS sürücüsü](https://github.
 Bu eklentide sayıları kelimelere dönüştürmenin iki yolu bulunur:
 
 * Gerçek zamanlı mod: NVDA konuştuğu ve herhangi bir yerinde sayı içeren bir metin olduğu sürece, dönüştürme sonucu görüntülenecek ve konuşma yoluyla iletilecektir. Bu, kullandığınız herhangi bir konuşma sentezleyicisi için geçerlidir.
+	* Bir giriş hareketi ekleyerek bu özelliği geçici olarak kullanabilirsiniz (aşağıya bakın). Bu geçici bir özellik olduğundan NVDA'dan çıktığınızda devre dışı bırakılacaktır.
+	* Bu özelliği NVDA başlatıldığında başlayacak şekilde de yapılandırabilirsiniz. Bunu yapmak için NVDA+N tuşlarına basın, tercihler>ayarlar...'a gidin ve Sayıdan kelimelere kategorisini seçin. Orada ilgili onay kutusunu bulacaksınız
 * El ile giriş modu: aynı anda sayı veya metin yazabilir, bunu yapmak için bir iletişim kutusu aracılığıyla etkileşimde bulunabilirsiniz. İletişim kutusunda şunlar bulunur:
 	* Sıralı hale dönüştürmek için bir onay kutusu.
-	* Sıra kutusu işaretlenmemişse, dönüştürme modunu seçmek için bir açılan kutu görüntülenir. beş dönüştürme modu vardır ve bunlar aşağıdaki gibidir:
+	* Sıra kutusu işaretlenmemişse, dönüştürme modunu seçmek için bir açılan kutu görüntülenir. Altı dönüştürme modu vardır ve bunlar aşağıdaki gibidir:
 		* Sıralı, örneğin: 1 = ilk.
 		* Sıra numarası, örneğin: 1 = ilk (sıra seçeneğiyle aynı yöntemi uygular).
 		* Tarih, örneğin (gg/aa/aaaa formatı): 23/07/2023 = Yirmi üç temmuz yirmi yirmi üç.
-		* Hour, for example: 12:30:15 = It's twelve hours, thirty minutes and fifteen seconds.
+		* Saat, örneğin: 12:30:15 = On iki saat, otuz dakika ve on beş saniyedir.
 		* Yıl, örneğin: 1980 = bin dokuz yüz seksen (birçok dilde etkisi yoktur).
 		* Para birimi, örneğin: iki euro, on beş sent
+			* Bu seçeneği seçtiğinizde, para birimini seçmeniz için yeni bir açılır kutu görünecektir. Her dilin euro dışında farklı para birimleri vardır ve liste değişiklik gösterebilir
 	* Girdinizi yazmak için bir giriş kutusu.
 	* Dönüştür düğmesi. Bu düğmeye basarak, nihai sonucu içeren bir mesaj kutusu gösterilecektir.
 	* İptal düğmesi: Dönüştürme iletişim kutusundan çıkar.
@@ -59,6 +62,7 @@ Bu eklentide sayıları kelimelere dönüştürmenin iki yolu bulunur:
 * num2words kütüphanesi 27 adede kadar ardışık sayıyı dönüştürebilir. Metin 27 sayıdan uzunsa, bir bip sesi ve bir konuşma mesajı ile size bildirir.
 * Şu anda, dönüştürülen bir sayının imleçle söylenmesi uygulanmamaktadır ve sonuç olarak dönüştürülen sayı hecelenecektir.
 * NVDA'da kurulu bazı yerel Python kitaplıklarıyla çakışmalar olduğundan, ondalık sayılardan sözcüklere dönüştürme desteği uygulanmaktadır.
+	* Bu çakışmalar NVDA'nın en son alfa sürümlerinde çözüldü. NVDA'nın kararlı bir sürümü yayınlandığında eklentinin daha iyi çalışacağını umuyoruz.
 
 ## Bu eklentiyi derleme:
 
@@ -79,6 +83,21 @@ Bu eklentinin geliştirilmesine yardımcı olmak istiyorsanız `angelitomateoced
 ---
 
 # Değişiklik günlüğü:
+
+## 0.4
+
+* Artık, dönüştürme modunu para birimine göre seçerken, seçilen dil tarafından desteklenen ve sentezleyici tarafından belirlenen para birimlerinin listesi aracılığıyla dönüştürülecek para birimini seçmek için bir açılır kutu eklendi.
+* Başlatma sırasında gerçek zamanlı modda kelimelerin sayılarını okumayı etkinleştirmek için NVDA ayarları paneline bir seçenek eklendi.
+* George ve Volodymyr Pyrig sayesinde Ukrayna dili eklendi.
+* num2words 0.5.13'e güncellendi
+	* Belarusça ve Slovakça için destek eklendi.
+	* Rusça ve Ukraynaca için güncellemeler ve kod yeniden düzenlemeleri.
+* Eklenti artık ayarlar paneli > gelişmiş bölümündeki karalama defteri seçeneğinin etkin olup olmadığını kontrol etmiyor.
+* Düzeltildi: Web sitelerine göz atarken dize dizini aralık dışı hatası. Teşekkürler Volodymyr.
+* Düzeltildi: Gerçek zamanlı dönüştürme ve NVDA konuşma ayırıcıları. Eklenti artık dönüştürülen kelimeleri doğru şekilde ayırmalıdır.
+* Düzeltildi: NVDA 2024.1 ile uyumluluk.
+* Düzeltildi: Saat dönüşümünde yanlış çeviri kullanımı. Dil koruyucularının, dilin düzgün çalışması için yeni girişleri güncellemesi gerekecektir.
+* Daha iyi okunabilirlik için kodu düzelttim.
 
 ## 0.3
 

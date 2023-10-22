@@ -26,7 +26,7 @@ The following comparison has been evaluated using the [IBMTTS driver](https://gi
 
 * Original input: 12 499
 * Output: doce mil cuatrocientos noventa y nueve
-*  Converted input: doce cuatrocientos noventa y nueve
+* Converted input: doce cuatrocientos noventa y nueve
 
 ## Usage:
 
@@ -37,7 +37,7 @@ This addon has two ways of using numbers to words:
 	* You can also configure this feature to start when NVDA starts. To do this, just press NVDA+N, go to `preferences>settings...` and select the number to words category. There you will find the corresponding checkbox.
 * Manual mode: you can write numbers or text, and/or numbers at the same time, interacting through a dialog box to do so. The dialog has:
 	* A checkbox to convert to ordinal.
-	* If the ordinal box is not checked, a combo box will appear to choose the conversion mode. There are five conversion modes and they are as follows:
+	* If the ordinal box is not checked, a combo box will appear to choose the conversion mode. There are six conversion modes and they are as follows:
 		* Ordinal, for example: 1 = first.
 		* Ordinal number, for example: 1 = first (aplies the same method that ordinal option).
 		* Date, for example (dd/mm/aaaa format): 23/07/2023 = Twenty-three  july  twenty twenty-three.
@@ -88,9 +88,9 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 ## 0.4
 
-* now, when selecting the conversion mode by currency, a combo box has been added to choose a currency to be converted, through the list of currencies supported by the selected language and determined by the synthesizer.
+* Now, when selecting the conversion mode by currency, a combo box has been added to choose a currency to be converted, through the list of currencies supported by the selected language and determined by the synthesizer.
 * Added an option in the NVDA settings panel to enable reading numbers to words in real time mode on startup.
-* added Ukrainian language, thanks to `Георгій` and `Володимир Пиріг`.
+* Added Ukrainian language, thanks to `Георгій` and `Володимир Пиріг`.
 * Updated num2words to 0.5.13
 	* Adds support for Belarusian and Slovak.
 	* Updates and code refactorings for Rusian and Ukrainian.
