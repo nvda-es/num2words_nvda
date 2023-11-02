@@ -22,6 +22,7 @@ import os
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'num2words'))
 import num2words
+from unicode_rbnf import RbnfEngine
 from .tools.datetime2words import convert_date, convert_hour
 import re
 import gui, wx
@@ -31,7 +32,7 @@ from .options import num2words_Settings
 speak_orig = None # speak object if num2words is disabled.
 realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking. This can be configured using the gesture set or the num2words settings panel.
 language = "en"
-
+unicode_engine = None
 addonHandler.initTranslation()
 
 # Set default Add-On settings:
@@ -40,7 +41,16 @@ confspec = {
 }
 config.conf.spec["num2words"] = confspec
 
-def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, currency="EUR", **kwargs):
+def convert_num_to_words(
+	utterance,
+	language,
+	processor = 1,
+	to='cardinal',
+	ordinal=False,
+	currency="EUR",
+	**kwargs
+):
+	global unicode_engine
 	match = re.findall(r'[\d./]+', utterance)
 	if len(match) > 0:
 		if len(re.findall(r'\d{28,}', utterance)) > 0:
@@ -49,11 +59,20 @@ def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, curr
 				# Translators: Error message when the number is too big.
 				_("The number is too big! twenty seven numbers maximum")
 			)
-		else:
-			if not to == "currency":
+			return
+		if unicode_engine is None:
+			unicode_engine = RbnfEngine.for_language(language)
+		if not to == "currency":
+			if processor == 1:
 				utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
-			else:
+			elif processor == 2:
+				utterance = ' '.join([engine.format_number(m) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
+		else:
+			if processor == 1:
 				utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to, currency=currency) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
+			elif processor == 2:
+				# Unicode doesn't support currency conversion.
+				raise Exception("Currency mode is not supported for this algorithm.")
 	#utterance = utterance.strip()
 	if utterance and not utterance[0].isupper():
 		utterance = utterance.capitalize()
