@@ -86,6 +86,11 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 # Changelog:
 
+## 0.4.1
+
+* In this patch I've made a regression for last tested NVDA version. Although I want to be honest and the thrut is that I've tested this add-on with 2024.1 alpha and 2024.1 hasn't been released yet, to avoid problems to publish it in the add-on store, I'll happily back to 2023.3 as the last tested version.
+* Also, the variables in some functions in the code has been clarified to improve readability.
+
 ## 0.4
 
 * Now, when selecting the conversion mode by currency, a combo box has been added to choose a currency to be converted, through the list of currencies supported by the selected language and determined by the synthesizer.

@@ -2,6 +2,7 @@
 # Author: Mateo Cedillo
 # imports:
 import globalPluginHandler
+from typing import Optional
 import globalCommands
 from scriptHandler import script
 import inputCore
@@ -40,7 +41,14 @@ confspec = {
 }
 config.conf.spec["num2words"] = confspec
 
-def convert_num_to_words(utterance, language, to='cardinal', ordinal=False, currency="EUR", **kwargs):
+def convert_num_to_words(
+	utterance: str,
+	language: str,
+	to: Optional[str] = 'cardinal',
+	ordinal: Optional[bool] = False,
+	currency: Optional[str] = "EUR",
+	**kwargs
+):
 	match = re.findall(r'[\d./]+', utterance)
 	if len(match) > 0:
 		if len(re.findall(r'\d{28,}', utterance)) > 0:
@@ -70,7 +78,7 @@ def _lang_not_supported_MSG():
 	)
 
 #taken from num2words/num2words/__init__.py
-def check_language(lang):
+def check_language(lang: str):
 	if lang not in num2words.CONVERTER_CLASSES:
 		# ... and then try only the first 2 letters
 		lang = lang[:2]

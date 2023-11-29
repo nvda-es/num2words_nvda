@@ -86,6 +86,11 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 # Historial de cambios:
 
+## 0.4.1
+
+* En este parche hice una regresión a la última versión de NVDA probada. Aunque prefiero ser honesto y la cuestión es que probé este complemento con las alpha de 2024.1 y 2024.1 aún no se ha lanzado, para evitar problemas al publicarlo en la tienda de complementos, regresaré con gusto a 2023.3 como la última versión probada.
+* Además, se han aclarado las variables en algunas funciones del código para mejorar la legibilidad.
+
 ## 0.4
 
 * Ahora, al seleccionar el modo de conversión por moneda, se agregó un cuadro combinado para seleccionar la moneda a ser convertida, a través de una lista de monedas que soporta el idioma seleccionado y determinado por el sintetizador.
