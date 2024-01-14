@@ -86,6 +86,11 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 # Historial de cambios:
 
+## 0.5
+
+* Agregado: Se ha reintroducido la compatibilidad con NVDA 2024.1, agregando compatibilidad con el modo de voz en petición para alternar num2words en tiempo real.
+* Corregido: errores con decimales no válidos. Ahora, por ejemplo, cuando num2words en tiempo real está activado, NVDA no se quedará callado ni mostrará un error en el log en estos casos.
+
 ## 0.4.1
 
 * En este parche hice una regresión a la última versión de NVDA probada. Aunque prefiero ser honesto y la cuestión es que probé este complemento con las alpha de 2024.1 y 2024.1 aún no se ha lanzado, para evitar problemas al publicarlo en la tienda de complementos, regresaré con gusto a 2023.3 como la última versión probada.
