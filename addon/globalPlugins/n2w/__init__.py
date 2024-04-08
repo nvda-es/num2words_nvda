@@ -28,10 +28,18 @@ import re
 import gui, wx
 from gui import settingsDialogs
 from .options import num2words_Settings
-# default params:
+# default params and definitions:
 speak_orig = None # speak object if num2words is disabled.
 realtime = False # this determines whether or not to use the add-on's realtime mode while NVDA is speaking. This can be configured using the gesture set or the num2words settings panel.
 language = "en"
+# Speech OnDemand:
+try:
+	# NVDA >= 2024.1
+	speech.speech.SpeechMode.onDemand
+	speakOnDemand = {'speakOnDemand': True}
+except AttributeError:
+	# NVDA <= 2023.3
+	speakOnDemand = {}
 
 addonHandler.initTranslation()
 
@@ -58,11 +66,13 @@ def convert_num_to_words(
 				_("The number is too big! twenty seven numbers maximum")
 			)
 		else:
+			# apply some text replacements to avoid decimal errors:
+			utterance = utterance.replace("..", ".") # > 2 dots is considered a decimal error.
 			if not to == "currency":
 				utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
 			else:
 				utterance = ' '.join([num2words.num2words(m, ordinal=ordinal, lang=language, to=to, currency=currency) if m.replace('.', '').replace('/', '').isdigit() else m for m in re.split(r'([\d./]+)', utterance)])
-	#utterance = utterance.strip()
+
 	if utterance and not utterance[0].isupper():
 		utterance = utterance.capitalize()
 	return utterance
@@ -380,7 +390,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: Description of the conversion of numbers to words in real time mode for input help.
 		description=_("Switch reading from numbers to words."),
 		category=globalCommands.SCRCAT_SPEECH,
-		gesture=None
+		gesture=None,
+		**speakOnDemand
 	)
 	def script_switch_num2word(self, gesture):
 		global realtime
