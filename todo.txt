@@ -1,0 +1,1 @@
+New setting to enable/disable auto-language detection to apply numbers to words according to the detected language. I'm working on a new small model called rmclangdetect to do this. I'm considering fasttext-langdetect but these models has a lot of size.

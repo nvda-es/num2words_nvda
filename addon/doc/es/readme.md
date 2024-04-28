@@ -90,6 +90,7 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 * Agregado: Se ha reintroducido la compatibilidad con NVDA 2024.1, agregando compatibilidad con el modo de voz en petición para alternar num2words en tiempo real.
 * Corregido: errores con decimales no válidos. Ahora, por ejemplo, cuando num2words en tiempo real está activado, NVDA no se quedará callado ni mostrará un error en el log en estos casos.
+* Se hizo una refactorización de código a todo el complemento. De esta forma, puede ser más legible y organizado para los contribuyentes.
 
 ## 0.4.1
 

@@ -90,6 +90,7 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 * Added: The support for NVDA 2024.1 has been reintroduced, adding On-Demand mode support for switch num2words in realtime.
 * Fixed: errors with invalid decimals. Now, for example, when num2words in realtime mode is enabled, NVDA will not go silent or display an error in the log in these cases.
+* A code refactoring was made to the entire add-on. This way, it can be more readable and organized for contributers.
 
 ## 0.4.1
 
