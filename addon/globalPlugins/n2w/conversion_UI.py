@@ -1,3 +1,9 @@
+# A part of NonVisual Desktop Access (NVDA)
+# Copyright (C) 2023-2024 Mateo Cedillo <angelitomateocedillo@gmail.com>
+# This file is covered by the GNU General Public License.
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+# WX UI for manual conversion mode:
+
 import wx
 from speech.speech import getCurrentLanguage
 import os
@@ -212,6 +218,7 @@ class ConversionDialog(wx.Dialog):
 					# Translators: title of the conversion results dialog.
 					_("Conversion results")
 				)
+		return words
 
 	def OnCancel(self, event):
 		self.Destroy()

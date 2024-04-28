@@ -1,3 +1,7 @@
+# A part of NonVisual Desktop Access (NVDA)
+# Copyright (C) 2023-2024 Mateo Cedillo <angelitomateocedillo@gmail.com>
+# This file is covered by the GNU General Public License.
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # Num2Words Monkey patches for the NVDA implementation:
 from typing import Optional
 import tones
@@ -16,6 +20,8 @@ from speech.types import SpeechSequence
 from speech.priorities import Spri
 from speech import manager
 from logHandler import log
+import api
+import textInfos
 import addonHandler
 addonHandler.initTranslation()
 
@@ -107,3 +113,13 @@ def speak_mod(speechSequence: SpeechSequence,
 		if autoLanguageSwitching and isinstance(item,LangChangeCommand):
 			curLanguage=item.lang
 	speak_orig(speechSequence = converted_speechSequence, priority = priority)
+
+# credits for this code snippet: https://raw.githubusercontent.com/beqabeqa473/instantTranslate/master/addon/globalPlugins/instantTranslate/__init__.py
+def getSelectedText():
+	obj=api.getCaretObject()
+	try:
+		info=obj.makeTextInfo(textInfos.POSITION_SELECTION)
+		if info or not info.isCollapsed:
+			return info.text
+	except (RuntimeError, NotImplementedError):
+		return None

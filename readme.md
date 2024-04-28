@@ -30,7 +30,7 @@ The following comparison has been evaluated using the [IBMTTS driver](https://gi
 
 ## Usage:
 
-This addon has two ways of using numbers to words:
+This addon has three ways of using numbers to words:
 
 * Real time mode: as long as NVDA is talking and there's a text containing numbers anywhere in it, the conversion will display its result and be transmitted by speech. This applies to any speech synthesizer you use.
 	* You can use this feature temporarily by adding an input gesture (see below). As this is a temporary feature, it will be disabled when you exit NVDA.
@@ -48,11 +48,16 @@ This addon has two ways of using numbers to words:
 	* An input box to write your entry.
 	* A convert button. By pressing this button, you will be shown a message box with the final result.
 	* A cancel button: Exits the conversion dialog.
+* Selection mode: If there's selected text containing numbers or numbers between words, the result will be converted and spoken aloud.
+
+Note: you can also copy the last result that was converted (see below)
 
 ### Input gestures:
 
 * Toggle numbers to words (or real time mode): (Unassigned gesture for now to avoid interference with other add-ons).
+* Convert numbers to words based on the selected text (selection mode): unassigned gesture.
 * Open conversion dialog (manual mode): alt+shift+NVDA+n.
+* Copy the last spoken result: unassigned gesture.
 * More features soon!
 
 #### Important notes:
@@ -62,7 +67,6 @@ This addon has two ways of using numbers to words:
 * The num2words library can convert up to 27 consecutive numbers. If the text is longer than 27 numbers, it will let you know with a beep and a speech message.
 * Currently, speaking a converted number with the cursor isn't implemented and as a consequence will spell out the converted number.
 * Decimal numbers to words conversion support is being implemented, as there are conflicts with some native Python libraries installed in NVDA.
-	* These conflicts are resolved in NVDA's most recent alphas. We hope that the add-on can work better when a stable version of NVDA is released.
 
 ## Compile this add-on:
 
@@ -89,7 +93,13 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 ## 0.5
 
 * Added: The support for NVDA 2024.1 has been reintroduced, adding On-Demand mode support for switch num2words in realtime.
+* Added: new scripts
+	* Convert numbers to words based on the selected text.
+	* Copy the last converted result, thanks `mk360`.
 * Fixed: errors with invalid decimals. Now, for example, when num2words in realtime mode is enabled, NVDA will not go silent or display an error in the log in these cases.
+* Updated: num2words library.
+	* This update as new languages: Spanish Costa Rica, Welsh and Chechen
+	* Code improvements, python 3.12 compativility.
 * A code refactoring was made to the entire add-on. This way, it can be more readable and organized for contributers.
 
 ## 0.4.1

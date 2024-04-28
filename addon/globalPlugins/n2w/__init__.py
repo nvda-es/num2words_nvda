@@ -1,5 +1,8 @@
+# A part of NonVisual Desktop Access (NVDA)
+# Copyright (C) 2023-2024 Mateo Cedillo <angelitomateocedillo@gmail.com>
+# This file is covered by the GNU General Public License.
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # num2words for NVDA
-# Author: Mateo Cedillo
 # imports:
 import globalPluginHandler
 import globalCommands
@@ -18,6 +21,7 @@ from gui import settingsDialogs
 from .conversion_UI import ConversionDialog
 from . import nvda_implementation
 from .options import num2words_Settings
+import api
 
 # default params and definitions:
 speak_orig = None # speak object if num2words is disabled.
@@ -51,6 +55,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	scriptCategory = _("Number to words")
 	def __init__(self):
 		super(globalPluginHandler.GlobalPlugin, self).__init__()
+		self.text = None
 		global realtime
 		# Add num2words category to the NVDA settings panel.
 		settingsDialogs.NVDASettingsDialog.categoryClasses.append(num2words_Settings)
@@ -87,7 +92,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture=None,
 		**speakOnDemand
 	)
-	def script_switch_num2word(self, gesture):
+	def script_switchNum2word(self, gesture):
 		global realtime
 		if not realtime:
 			# Translators: message announced when realtime mode is enabled.
@@ -97,6 +102,34 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			# Translators: message announced when realtime mode is disabled.
 			ui.message(_("Num2words disabled."))
 			realtime = False
+
+	@script(
+		# Translators: Description of the conversion of numbers to words in real time mode for input help.
+		description=_("Convert numbers to words found in the selected text"),
+		gesture=None,
+		**speakOnDemand
+	)
+	def script_convertSelected(self, gesture):
+		text = nvda_implementation.getSelectedText()
+		if text:
+			self.text = nvda_implementation.convert_num_to_words(text, getCurrentLanguage())
+			ui.message(self.text)
+		else:
+			# Translators: message announced when no text is selected
+			ui.message(_("There's no selected text to convert"))
+
+	@script(
+		# Translators: Description of the conversion of numbers to words in real time mode for input help.
+		description=_("Copy the last conversion result"),
+		gesture=None,
+		**speakOnDemand
+	)
+	def script_copyConverted(self, gesture):
+		if self.text or self.text is not None:
+			api.copyToClip(self.text, notify=True)
+		else:
+			# Translators: message when there is no result.
+			ui.message(_("There's no result to copy"))
 
 	@script(
 		# Translators: Description of the manual conversion dialog for input help.

@@ -30,7 +30,7 @@ La siguiente comparación ha sido evaluada utilizando el [controlador IBMTTS](ht
 
 ## Uso:
 
-Este complemento tiene dos formas de usar números a palabras que se detallan a continuación:
+Este complemento tiene tres formas de usar números a palabras que se detallan a continuación:
 
 * Modo en tiempo real: mientras NVDA hable y exista texto que contenga números dentro de él, la conversión mostrará su resultado y este se transmitirá por voz. Esto, por supuesto, se aplica en cualquier sintetizador de voz que uses.
 	* Puedes usar esta característica de forma temporal agregando un gesto de entrada (ver más abajo). Siendo una característica temporal, se desactivará cuando sales de NVDA.
@@ -48,11 +48,16 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 	* Un cuadro de edición para escribir tu entrada.
 	* Un botón convertir. Al presionar este botón, se te mostrará un cuadro de mensaje con el resultado final.
 	* Un botón cancelar: sale del diálogo de conversión.
+* Modo de selección: si hay un texto seleccionado que contiene números o números entre palabras, el resultado se convertirá y se pronunciará en voz alta.
+
+Nota: también puedes copiar el último resultado que se haya convertido (ver más abajo)
 
 ### Gestos de entrada:
 
 * Alternar números a palabras (o modo en tiempo real): Gesto sin asignar por ahora para evitar interferencia con otros complementos.
+* Convertir números en palabras basado en el texto seleccionado (modo de selección): gesto sin asignar.
 * Abrir el diálogo de conversión (o modo manual): alt+shift+NVDA+n
+* Copiar el último resultado hablado: gesto sin asignar.
 * ¡Más características pronto!
 
 #### Notas importantes:
@@ -62,7 +67,6 @@ Este complemento tiene dos formas de usar números a palabras que se detallan a 
 * La librería num2words puede convertir hasta 27 números seguidos. Si el texto tiene más de 27 números, lo sabrás con un pitido y un mensaje de voz indicándotelo.
 * Actualmente, la verbalización de un número convertido con el cursor no está implementada y, como consecuencia, se deletreará el número convertido.
 * El soporte de conversión de números decimales a palabras se está intentando implementar, ya que hay conflictos con algunas librerías natibas de Python instaladas en NVDA.
-	* These conflicts are resolved in NVDA's most recent alphas. We hope that the add-on can work better when a stable version of NVDA is released.
 
 ## Compilar este complemento:
 
@@ -89,7 +93,13 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 ## 0.5
 
 * Agregado: Se ha reintroducido la compatibilidad con NVDA 2024.1, agregando compatibilidad con el modo de voz en petición para alternar num2words en tiempo real.
+* Agregado: nuevos comandos
+	* Convierte números en palabras basado en el texto seleccionado.
+	* Copiar el último resultado convertido, gracias `mk360`.
 * Corregido: errores con decimales no válidos. Ahora, por ejemplo, cuando num2words en tiempo real está activado, NVDA no se quedará callado ni mostrará un error en el log en estos casos.
+* Actualizado: libraría num2words.
+	* Esta actualización tiene nuevos idiomas: Español Costa Rica, galés y checheno
+	* Mejoras de código, compativilidad con python 3.12.
 * Se hizo una refactorización de código a todo el complemento. De esta forma, puede ser más legible y organizado para los contribuyentes.
 
 ## 0.4.1

@@ -1,5 +1,8 @@
+# A part of NonVisual Desktop Access (NVDA)
+# Copyright (C) 2023-2024 Mateo Cedillo <angelitomateocedillo@gmail.com>
+# This file is covered by the GNU General Public License.
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # Num2words options UI
-# By: Mateo C
 # imports:
 from gui import guiHelper
 # To support future NVDA versions with API updates.
