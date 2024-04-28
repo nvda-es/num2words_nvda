@@ -66,7 +66,6 @@ Nota: también puedes copiar el último resultado que se haya convertido (ver m�
 * Al iniciar NVDA, se comprueba el idioma de tu sintetizador. Si este no es compatible, se te avisará.
 * La librería num2words puede convertir hasta 27 números seguidos. Si el texto tiene más de 27 números, lo sabrás con un pitido y un mensaje de voz indicándotelo.
 * Actualmente, la verbalización de un número convertido con el cursor no está implementada y, como consecuencia, se deletreará el número convertido.
-* El soporte de conversión de números decimales a palabras se está intentando implementar, ya que hay conflictos con algunas librerías natibas de Python instaladas en NVDA.
 
 ## Compilar este complemento:
 

@@ -66,7 +66,6 @@ Note: you can also copy the last result that was converted (see below)
 * When starting NVDA, the synthesizer language is checked. If this is not supported, you will be notified.
 * The num2words library can convert up to 27 consecutive numbers. If the text is longer than 27 numbers, it will let you know with a beep and a speech message.
 * Currently, speaking a converted number with the cursor isn't implemented and as a consequence will spell out the converted number.
-* Decimal numbers to words conversion support is being implemented, as there are conflicts with some native Python libraries installed in NVDA.
 
 ## Compile this add-on:
 
