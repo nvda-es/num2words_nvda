@@ -11,6 +11,7 @@ import config
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'num2words'))
 import num2words
+import decimal
 import wx
 import inputCore
 import speech
@@ -99,7 +100,10 @@ def speak_mod(speechSequence: SpeechSequence,
 				converted_speechSequence.append(LangChangeCommand(curLanguage))
 				prevLanguage=curLanguage
 			# Aplying number to words to synthesizer language:
-			new_item = convert_num_to_words(utterance=item, language=curLanguage)
+			try:
+				new_item = convert_num_to_words(utterance=item, language=curLanguage)
+			except decimal.InvalidOperation:
+				new_item = item
 			# for testing:
 			#new_item = convert_num_to_words(utterance=item, language="en")
 			converted_speechSequence.append(new_item)
