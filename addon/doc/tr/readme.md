@@ -30,29 +30,34 @@ Aşağıdaki karşılaştırma, NVDA için [IBMTTS sürücüsü](https://github.
 
 ## kullanım:
 
-Bu eklentide sayıları kelimelere dönüştürmenin iki yolu bulunur:
+Bu eklentide sayıları kelimelere dönüştürmenin üç yolu bulunur:
 
 * Gerçek zamanlı mod: NVDA konuştuğu ve herhangi bir yerinde sayı içeren bir metin olduğu sürece, dönüştürme sonucu görüntülenecek ve konuşma yoluyla iletilecektir. Bu, kullandığınız herhangi bir konuşma sentezleyicisi için geçerlidir.
 	* Bir giriş hareketi ekleyerek bu özelliği geçici olarak kullanabilirsiniz (aşağıya bakın). Bu geçici bir özellik olduğundan NVDA'dan çıktığınızda devre dışı bırakılacaktır.
 	* Bu özelliği NVDA başlatıldığında başlayacak şekilde de yapılandırabilirsiniz. Bunu yapmak için NVDA+N tuşlarına basın, tercihler>ayarlar...'a gidin ve Sayıdan kelimelere kategorisini seçin. Orada ilgili onay kutusunu bulacaksınız
 * El ile giriş modu: aynı anda sayı veya metin yazabilir, bunu yapmak için bir iletişim kutusu aracılığıyla etkileşimde bulunabilirsiniz. İletişim kutusunda şunlar bulunur:
 	* Sıralı hale dönüştürmek için bir onay kutusu.
-	* Sıra kutusu işaretlenmemişse, dönüştürme modunu seçmek için bir açılan kutu görüntülenir. Altı dönüştürme modu vardır ve bunlar aşağıdaki gibidir:
+	* Sıra kutusu işaretlenmemişse, dönüştürme modunu seçmek için bir açılan kutu görüntülenir. beş dönüştürme modu vardır ve bunlar aşağıdaki gibidir:
 		* Sıralı, örneğin: 1 = ilk.
 		* Sıra numarası, örneğin: 1 = ilk (sıra seçeneğiyle aynı yöntemi uygular).
 		* Tarih, örneğin (gg/aa/aaaa formatı): 23/07/2023 = Yirmi üç temmuz yirmi yirmi üç.
 		* Saat, örneğin: 12:30:15 = On iki saat, otuz dakika ve on beş saniyedir.
 		* Yıl, örneğin: 1980 = bin dokuz yüz seksen (birçok dilde etkisi yoktur).
 		* Para birimi, örneğin: iki euro, on beş sent
-			* Bu seçeneği seçtiğinizde, para birimini seçmeniz için yeni bir açılır kutu görünecektir. Her dilin euro dışında farklı para birimleri vardır ve liste değişiklik gösterebilir
+		* Bu seçeneği seçtiğinizde, para birimini seçmeniz için yeni bir açılır kutu görünecektir. Her dilin euro dışında farklı para birimleri vardır ve liste değişiklik gösterebilir
 	* Girdinizi yazmak için bir giriş kutusu.
 	* Dönüştür düğmesi. Bu düğmeye basarak, nihai sonucu içeren bir mesaj kutusu gösterilecektir.
 	* İptal düğmesi: Dönüştürme iletişim kutusundan çıkar.
+* Seçim modu: Kelimelerin arasında sayılar veya sayılar içeren seçilmiş bir metin varsa, sonuç dönüştürülecek ve yüksek sesle söylenecektir.
+
+Not: Ayrıca dönüştürülen son sonucu da kopyalayabilirsiniz (aşağıya bakın)
 
 ### Girdi hareketleri:
 
 * Sayıları kelimelere dönüştür (veya gerçek zamanlı mod): (Diğer eklentilerle karışıklığı önlemek için şimdilik bir hareket atanmamış).
+* Sayıları seçilen metne göre kelimelere dönüştürür (seçim modu): Hareket atanmamış.
 * Dönüştürme iletişim kutusunu aç (El ile giriş modu): alt+shift+NVDA+n.
+* Son söylenen sonucu kopyala: Hareket atanmamış.
 * Yakında daha fazla özellik!
 
 #### Önemli notlar:
@@ -61,8 +66,6 @@ Bu eklentide sayıları kelimelere dönüştürmenin iki yolu bulunur:
 * NVDA başlatılırken sentezleyici dili kontrol edilir. Kullanılan dil desteklenmiyorsa, size bildirilecektir.
 * num2words kütüphanesi 27 adede kadar ardışık sayıyı dönüştürebilir. Metin 27 sayıdan uzunsa, bir bip sesi ve bir konuşma mesajı ile size bildirir.
 * Şu anda, dönüştürülen bir sayının imleçle söylenmesi uygulanmamaktadır ve sonuç olarak dönüştürülen sayı hecelenecektir.
-* NVDA'da kurulu bazı yerel Python kitaplıklarıyla çakışmalar olduğundan, ondalık sayılardan sözcüklere dönüştürme desteği uygulanmaktadır.
-	* Bu çakışmalar NVDA'nın en son alfa sürümlerinde çözüldü. NVDA'nın kararlı bir sürümü yayınlandığında eklentinin daha iyi çalışacağını umuyoruz.
 
 ## Bu eklentiyi derleme:
 
@@ -83,6 +86,23 @@ Bu eklentinin geliştirilmesine yardımcı olmak istiyorsanız `angelitomateoced
 ---
 
 # Değişiklik günlüğü:
+
+## 0.5
+
+* Eklendi: NVDA 2024.1 desteği yeniden sunuldu ve Sayıdan Kelimelere anahtarı için gerçek zamanlı olarak İsteğe Bağlı mod desteği eklendi.
+* Eklendi: yeni komut
+	* Seçilen metne göre sayıları kelimelere dönüştürün.
+	* Son dönüştürülen sonucu kopyalayın, teşekkürler 'mk360'.
+* Düzeltildi: geçersiz ondalık sayılarla ilgili hatalar. Şimdi, örneğin, gerçek zamanlı modda Sayıdan kelimelere etkinleştirildiğinde, NVDA bu durumlarda sessiz kalmayacak veya günlükte bir hata görüntülemeyecektir.
+* Güncellendi: Sayıdan kelimelere kütüphanesi.
+	* Bu güncelleme yeni diller olarak: İspanyolca Kosta Rika, Galce ve Çeçence dillerini bulundurur
+	* Kod iyileştirmeleri, python 3.12 uyumluluğu.
+* Eklentinin tamamında kod düzenlemesi yeniden yapıldı. Bu şekilde katkıda bulunanlar için daha okunabilir ve organize edilebilir.
+
+## 0.4.1
+
+* Bu yamada NVDA'nın son test edilen sürümü için bir gerileme yaptım. Dürüst olmak gerekirse, bu eklentiyi 2024.1 alpha ile test etmiş olmama ve 2024.1'in henüz yayınlanmamasına rağmen, eklenti mağazasında yayınlamayla ilgili sorunları önlemek için memnuniyetle geri döneceğim. En son test edilen sürüm olarak 2023.3.
+* Ayrıca okunabilirliği artırmak için koddaki bazı işlevlerdeki değişkenler netleştirildi.
 
 ## 0.4
 

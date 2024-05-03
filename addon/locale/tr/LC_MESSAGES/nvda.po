@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Sayıdan Kelimelere 0.4\n"
+"Project-Id-Version: Sayıdan Kelimelere\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2024-04-28 10:30-0500\n"
-"PO-Revision-Date: 2023-10-20 15:47+0300\n"
+"PO-Revision-Date: 2024-04-29 12:44+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr_TR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. Translators: Add-on category name.
 #: addon\globalPlugins\n2w\__init__.py:55
@@ -40,27 +40,23 @@ msgstr "Sayıdan kelimelere dönüştürücü devre dışı."
 
 #. Translators: Description of the conversion of numbers to words in real time mode for input help.
 #: addon\globalPlugins\n2w\__init__.py:108
-#, fuzzy
 msgid "Convert numbers to words found in the selected text"
-msgstr "Sayıyı kelimelere dönüştür"
+msgstr "Sayıları seçili metinde bulunan sözcüklere dönüştür"
 
 #. Translators: message announced when no text is selected
 #: addon\globalPlugins\n2w\__init__.py:119
-#, fuzzy
 msgid "There's no selected text to convert"
-msgstr "dönüştürülecek bir şey bulunamadı"
+msgstr "Dönüştürülecek seçili metin yok"
 
 #. Translators: Description of the conversion of numbers to words in real time mode for input help.
 #: addon\globalPlugins\n2w\__init__.py:123
-#, fuzzy
 msgid "Copy the last conversion result"
-msgstr "Dönüştürme sonuçları"
+msgstr "Dönüştürülen son sonucu kopyala"
 
 #. Translators: message when there is no result.
 #: addon\globalPlugins\n2w\__init__.py:132
-#, fuzzy
 msgid "There's no result to copy"
-msgstr "dönüştürülecek bir şey bulunamadı"
+msgstr "Kopyalanacak sonuç yok"
 
 #. Translators: Description of the manual conversion dialog for input help.
 #: addon\globalPlugins\n2w\__init__.py:136
