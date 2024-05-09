@@ -82,7 +82,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	# GUI for conversion:
 	def onConvert(self, evt):
-		gui.mainFrame._popupSettingsDialog(ConversionDialog)
+		gui.mainFrame.popupSettingsDialog(ConversionDialog)
 
 	# scripts:
 	@script(

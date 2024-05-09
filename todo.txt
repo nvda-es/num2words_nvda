@@ -1,1 +1,2 @@
 New setting to enable/disable auto-language detection to apply numbers to words according to the detected language. I'm working on a new small model called rmclangdetect to do this. I'm considering fasttext-langdetect but these models has a lot of size.
+A possivility to store converted numbers to words from the conversion gui to self.text (the global plugin script). It can be done with CTRL+c but it would be nice to copy the output without dialog name and separaters.
