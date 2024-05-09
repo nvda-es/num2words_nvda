@@ -10,7 +10,7 @@ import os
 import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'num2words'))
 import num2words
-from .nvda_implementation import check_language
+from .nvda_implementation import check_language, convert_num_to_words
 from .tools.datetime2words import convert_date, convert_hour
 import addonHandler
 addonHandler.initTranslation()

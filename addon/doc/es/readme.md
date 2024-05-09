@@ -89,6 +89,10 @@ Si quieres ayudar a mejorar este complemento, puedes enviar un correo a `angelit
 
 # Historial de cambios:
 
+## 0.5.1
+
+* En este parche arreglé un error con el modo de conversión manual, debido a las consecuencias de la reorganización del código.
+
 ## 0.5
 
 * Agregado: Se ha reintroducido la compatibilidad con NVDA 2024.1, agregando compatibilidad con el modo de voz en petición para alternar num2words en tiempo real.

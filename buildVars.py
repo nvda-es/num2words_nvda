@@ -25,7 +25,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("Implementation of the num2Word python library for NVDA that supports many languages"),
 	# version
-	"addon_version": "0.5",
+	"addon_version": "0.5.1",
 	# Author(s)
 	"addon_author": "Mateo Cedillo <angelitomateocedillo@gmail.com>",
 	# URL for the add-on documentation support

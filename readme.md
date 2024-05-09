@@ -89,6 +89,10 @@ If you want to help improve this addon, you can send an email to `angelitomateoc
 
 # Changelog:
 
+## 0.5.1
+
+* In this patch I've fixed an error with manual conversion mode due to the code organization consequences.
+
 ## 0.5
 
 * Added: The support for NVDA 2024.1 has been reintroduced, adding On-Demand mode support for switch num2words in realtime.
